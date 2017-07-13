@@ -6,7 +6,7 @@ def remove_duplicates(list)
   prev = nil
 
   while current
-    if (set.include?(current.value))
+    if set.include?(current.value)
       prev.next = current.next
     end
     set.add(current.value)
