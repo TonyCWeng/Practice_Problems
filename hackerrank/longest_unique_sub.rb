@@ -12,11 +12,14 @@ def len_of_longest_sub(string)
         i += 1
         j = i
         longest = current.length if current.length > longest
+        current.clear
       else
         current << string[j]
       end
       j += 1
     end
   end
-  longest
+  longest > current.length ? longest : current
 end
+
+p len_of_longest_sub("Apple")
