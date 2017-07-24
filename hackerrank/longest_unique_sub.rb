@@ -22,4 +22,4 @@ def len_of_longest_sub(string)
   longest > current.length ? longest : current
 end
 
-p len_of_longest_sub("Apple")
+p len_of_longest_sub("dvdfvf")
