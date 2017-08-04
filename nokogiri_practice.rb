@@ -17,3 +17,8 @@ noko.css('li').each do |link|
   good_links << link
 end
 p good_links
+
+# Parsing with Nokogiri
+# Nokogiri::HTML(open(url))
+#where url = some website's address
+#Can do Nokogiri::HTML(RestClient.get(url))
