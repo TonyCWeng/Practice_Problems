@@ -36,6 +36,9 @@ def reverse(string)
   string.last + reverse(string[0...-1])
 end
 
+#Digital root. sum the digits of a positive integer. If the num is >= 10,
+# do it again. Do not use string conversion.
+
 def digital_root(num)
   return num if num < 10
   digital_root((num % 10) + (num / 10))
