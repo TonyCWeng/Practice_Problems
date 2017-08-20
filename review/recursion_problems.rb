@@ -32,4 +32,11 @@ end
 # built-in #reverse methods!
 
 def reverse(string)
+  return string if string.length == 0
+  string.last + reverse(string[0...-1])
+end
+
+def digital_root(num)
+  return num if num < 10
+  digital_root((num % 10) + (num / 10))
 end
