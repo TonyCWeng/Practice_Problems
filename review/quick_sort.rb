@@ -19,3 +19,14 @@ def self.partition
   end
 
 end
+
+def self.sort(array, start = 0, length = array.length, &prc)
+  prc
+  return array if length <= 1
+  pivot_idx = partition(array, start, length, &prc)
+  left = pivot_idx -start
+  right_length = length = (left_length + 1)
+  sort(left)
+  sort(right)
+  array
+end
