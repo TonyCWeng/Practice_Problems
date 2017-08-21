@@ -12,5 +12,3 @@ def caesar_cipher(str, shift)
   end
   encoded.join("")
 end
-
-p caesar_cipher("apple bobber", -2)
