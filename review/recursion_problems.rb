@@ -44,6 +44,9 @@ end
 # if the array is sorted.
 
 def sorted?(array)
+  return true if array.length <= 1
+  return false if array > array[1]
+  sorted?(array.drop(1))
 end
 
 # Problem 6: Write a recursive function to reverse a string. Don't use any
