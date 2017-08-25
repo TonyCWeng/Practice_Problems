@@ -28,3 +28,9 @@ def folding_cipher(str)
   cipher = Hash[alphabet.zip(reversed)]
   str.split("").map { |char| cipher[char] }.join("")
 end
+
+def odds(l, r)
+  (l..r).each do |el|
+    print el if el % 2 == 1
+  end
+end
