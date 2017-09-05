@@ -18,5 +18,15 @@
   server responds with a permanent redirect (this is done in part fo search engine
   rankings, as redirects can consolidate url hits from different URLs that lead
   to the same page)
-  
-5.
+
+5. Browser sends out another GET request to the redirect link.
+
+6. Server receives get request, processes it.
+
+7. Server sends HTM response
+
+8. Browser knows what to render/begins rendering.
+
+9. Browser sends get requests to retrieve images/css style sheets/javascript files
+
+10. Browser sends additional async requests (ajax), if needed (update dynamic content like friends' list).
