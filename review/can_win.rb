@@ -4,15 +4,17 @@
 
 # Use memoization
 
-def can_win?(arr, start = 0, record = {})
-  return false if !start.between(0, arr.count - 1) || seen[pos]
+def can_win?(arr, start = 0, visited = {})
+  return false if !start.between(0, arr.count - 1) || visited[pos]
   return true if arr[pos].zero?
 
-  seen[pos] = true
-  can_win?(arr, pos + arr[pos], seen) || can_win?(arr, pos - arr[pos], seen)
+  visited[pos] = true
+  can_win?(arr, pos + arr[pos], visited) || can_win?(arr, pos - arr[pos], visited)
 end
-# return false if we've already seen this position (i.e., arr[pos] = 0)
+# return false if we've already visited this position (i.e., arr[pos] = 0)
 # or if we're beyond the bounds of the array.
+# visited is our collection of pos: true key value pairs.
+# we pass in the updated hash to the recursive call.
 
 # in the recursive step, we increment or decrement by arr[pos]
 # we check both left and right
