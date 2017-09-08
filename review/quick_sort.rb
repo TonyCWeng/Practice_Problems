@@ -1,7 +1,7 @@
 # In-place quick sort
 # Same
 
-def self.partition
+def self.partition(array, start, length, &prc)
   prc ||= Proc.new {|el1, el2| el1 <=> el2 }
   new_pivot = start + rand(length)
   array[start], new_pivot = array[new_pivot], array[start]
