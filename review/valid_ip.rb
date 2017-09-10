@@ -5,7 +5,18 @@ def valid_ip
   nums.all? { |num| num >= 0 && num <= 255 }
 end
 
+# textbook solution
+
+def valid_ip?(str)
+  return false unless str =~ /^\d+(\.\d+){3}$/
+  #uses regex to test if there's numbers separated by . three times.
+  #but it can be any number of digits between the .
+  nums = str.split(".").map(&:to_i)
+  nums.all? {|num| num >= 0 && num <= 255}
+end
+
 def sum_from_file(filename)
+  #File.readlines = returns file lines in an array
   nums = File.readlines(filename)
              .select { |line| line[0] != "#" }
              .map(&:to_i)
