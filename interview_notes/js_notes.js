@@ -5,3 +5,14 @@ function empty_arr(arr) {
     arr.pop();
   }
 }
+
+
+/* Mixr Notes (improvements)
+PostgreSQL: touchup (unique emails check)
+
+Implement frontend check on file attachment size
+Edit Profile image
+Edit posts
+Home page for posts
+
+*/
