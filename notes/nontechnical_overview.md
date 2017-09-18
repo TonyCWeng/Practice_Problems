@@ -14,3 +14,24 @@
 
 ## JSX
 - JS extension syntax, allows for use of HTML tags inside of JavaScript. Hence its use in React components.
+
+## React Life Cycle Methods
+- Behavior can be split to Mounting, Updating, Unmounting
+
+### Mounting (Chronological Order)
+- Constructor()
+- ComponentWillMount(); Allow something to happen right before mounting
+  - Occurs before render(), so no re-rendering will occur due to it.
+- Render();
+- ComponentDidMount(); invoked immediately after component mounts and after render().
+
+### Updating
+- ComponentWillReceiveProps(); compares this.props and nextProps to determine if the
+component should re-render. Occurs before mounted component receives next props.
+- ShouldComponentUpdate(); By default, returns true. If returns false, ComponentWillUpdate and ComponentDidUpdate will not invoke.
+- render(); invoked if ComponentWillReceiveProps or ComponentDidUpdate are invoked.
+- ComponentDidUpdate(); invoked after update occurs, not used for initial render.
+
+### Unmounting
+- ComponentWillUnmount(); invoked before component is unmounted and destroyed.
+  - Utilized for Component clean-up (invalidate timers, cancel network requests, clear up DOM elements created by componentDidMount)

@@ -38,8 +38,9 @@ def double_sort(arr)
   end
   #O(n * m * log m, where m is the length of the longest string)
   sorted_strings.sort
-  # sorting the string is n * log n, but string comparisons takes m time
-  # so calling .sort on an array of strings takes n * m log n
+  # there are n * log n comparisons in this sort, but each string
+  # comparisons takes m time to perform.
+  # Therefore, calling .sort on an array of strings takes n * m log n
 end
 #Time complexity: O(  n*m log m + n*m log n)
 #counterintuitive
