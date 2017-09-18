@@ -8,6 +8,8 @@ def fibs(num)
   sequence
 end
 
+# time complexity: O(2**n)
+
 def recur_fibs(num)
   return [] if num == 0
   return [0] if num == 1
@@ -29,4 +31,4 @@ def palindrome?(string)
 end
 
 #time complexity: linear (or n/2, same deal)
-#space complexity: constant, 
+#space complexity: constant,
