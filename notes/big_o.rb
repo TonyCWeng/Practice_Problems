@@ -25,3 +25,21 @@ def print_pairs(arr)
   end
 end
 print_pairs([1,2,3])
+
+# ex 3
+# given an array of strings of length n
+# first, sort every string in the array
+# then sort the array and return it
+
+def double_sort(arr)
+  sorted_strings = []
+  arr.each do |string|
+    sorted_strings << string.sort
+  end
+  #O(n * m * log m, where m is the length of the longest string)
+  sorted_strings.sort
+  # sorting the string is n * log n, but string comparisons takes m time
+  # so calling .sort on an array of strings takes n * m log n
+end
+#Time complexity: O(  n*m log m + n*m log n)
+#counterintuitive

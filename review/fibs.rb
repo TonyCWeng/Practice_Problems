@@ -20,6 +20,7 @@ def recur_fibs(num)
   prev
 end
 
+
 def palindrome?(string)
   i = 0
   len = string.length
