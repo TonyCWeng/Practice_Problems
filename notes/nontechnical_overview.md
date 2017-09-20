@@ -34,4 +34,4 @@ component should re-render. Occurs before mounted component receives next props.
 
 ### Unmounting
 - ComponentWillUnmount(); invoked before component is unmounted and destroyed.
-  - Utilized for Component clean-up (invalidate timers, cancel network requests, clear up DOM elements created by componentDidMount)
+  - Utilized for Component clean-up (invalidate timers, cancel network requests, clear up DOM elements created by componentDidMount).
