@@ -3,6 +3,7 @@
 ## Cookies
 - 4000 KB limit (includes name, value, expiry date)
 - Data is sent back to the server for every HTTP request(HTML, images, JavaScript, CSS, etc), so it generates a lot of traffic between client and server
+- Can be either persistent or non-persistent, depending on implementation
 
 ## LocalStorage
 - 5120 KB limit is an improvement in size
