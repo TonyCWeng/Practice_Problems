@@ -12,6 +12,8 @@
 
 
 ## Interface
+- Interfaces can only have constants and method stubs (methods without a body)
+- All methods in an Interface are public
 - Every object implementing the interface must implement all of its methods
 - Ensuring compatibility without the mess of inheritance
 - An object can only extend one class, but can implement many interfaces
@@ -25,6 +27,7 @@
 
 ### Abstract Class
 - Cannot be instantiated. Serves as a superclass for other classes to extend from.
+- Can have constants, members, method stubs, and defined methods. Methods and members of an Abstract class can be of any visibility.
 
 ## Inheritance
 - when one class (subclass) inherits properties from another class (superclass) in the form of methods and fields (variables that belong to a class)
