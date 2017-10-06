@@ -24,7 +24,11 @@ long (8 bytes): -9,223,372,036,854,775,808L to 9,223,372,036,854,775,807L
 float (32 bit): 6-7 digits
 double (64 bit): 15-16 digits
 decimal (128 bit): 28-29 significant figure limit
-char: single character
+char: single character (Must use single quotes for char values)
+
+char c = 'a';
+String s = "hello";
+
 void: no return value
 
 *Converstion*
@@ -32,10 +36,11 @@ example. double aDouble = 3.1454;
 String doubleString = Double.toString(aDouble);
 - converts our double into a String
 
-int stringToInt = Integer.parseInt(intStr)
 
 int doubleToInt = (int) aDouble;
 - converts our double into an integer
+int stringToInt = Integer.parseInt(do)
+
 
 static Scanner userinput = new Scanner(System.in);
 System.out.print("Enter a name: \n");
@@ -44,3 +49,11 @@ if(userInput.hasNextLine()) {
 }
 ## Variable Interpolation in Java
 - String.format("%s is %d years old.", name, date)
+
+## Logical Operators
+- & Returns true if boolean value on left and right are both true. Always evaluates both sides.
+- && Returns true if boolean value on left and right are both true. Stops at the first false .
+- || Returns true if either boolean value is true. Stops evaluating at first true.
+- | : Or. Returns true if either boolean value is true. Always evaluates left and right side.
+- ! : reverses trues and false
+- ^ : XOR operator. Checks for one true and one false.
