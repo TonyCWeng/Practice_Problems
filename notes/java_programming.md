@@ -57,3 +57,12 @@ if(userInput.hasNextLine()) {
 - | : Or. Returns true if either boolean value is true. Always evaluates left and right side.
 - ! : reverses trues and false
 - ^ : XOR operator. Checks for one true and one false.
+
+## Static and Dynamic Typing (data type)
+- In a static typed programming language (such as Java), variables do not need to be defined before they are used.
+- In a statically typed language, type checking is performed at compile time.
+- In a dynamically typed language, type checking is performed at runtime.
+
+## Strong and Weak Typing
+- Strong typing: variables are declared with a specific data type.
+- In a weak-typed language, variables can be coerced into a different type (implicit typing).
