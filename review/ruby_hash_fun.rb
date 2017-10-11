@@ -20,6 +20,6 @@ person2 = {
   "company_name" => "Microsoft",
   "position" => "Chairman"
 }
-people  = person1.merge(person2) {|key, first, second| first}
+people  = person1.merge(person2) {|key, oldval, newval| oldval}
 p people
 #if you wish to merge, but have old values take precedence
