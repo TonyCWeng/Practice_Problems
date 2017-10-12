@@ -1,12 +1,4 @@
-class Ride
-  attr_accessor :start_time, :end_time, :items
-
-  def initialize(start_time = nil, end_time = nil, items = nil)
-    @start_time = start_time
-    @end_time = end_time
-    @items = items
-  end
-end
+require_relative "ride"
 
 class ItemCounter
   attr_accessor :name
@@ -23,7 +15,7 @@ class ItemCounter
     if @counter.empty?
       @counter << [start_time, end_time, items]
     else
-      @counter = add_entry(start_time, end_time, items, @counter)
+      @counter = update_counter(start_time, end_time, items, @counter)
     end
   end
 
@@ -39,7 +31,8 @@ class ItemCounter
     end
   end
 
-  #converts item from string to hash form
+  private
+  #converts item from string to hash counter form
   def parse_inventory(items)
     item_count = Hash.new
     items.split(',').each do |item|
@@ -49,4 +42,25 @@ class ItemCounter
     item_count
   end
 
+  def update_counter(start_time, end_time, items, counter)
+    counter.length.times do |idx|
+
+    end
+  end
+
+  def factor_overlap(starting_inventory, added_inventory)
+    list = Hash[old_list.map {|item, count| [k, v.to_i]}]
+    new_list.each do |item, count|
+      list[key] ||= 0
+      list[key] = value.to_i
+    end
+    list
+  end
+
 end
+
+# example = Ride.new("07:20", "08:30","3 diamonds, 1 snowball")
+#
+# Item_list = ItemCounter.new("Ride Counter")
+# Item_list.process_ride(example)
+# Item_list.print_items_per_interval()
