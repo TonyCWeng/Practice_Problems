@@ -51,39 +51,60 @@ class ItemCounter
     # if there is no overlap among current values (ride begins and ends before
     # any other ride begins)
     if counter.all? { |start, ending| start < start_time &&
-    ending > end_time }
+      ending > end_time }
       return counter.unshift([start_time, end_time, items])
     end
 
-    # if the newest ride begins after all other rides have ended
+    # if the current ride begins after all other rides have ended
     if counter.all? { |start, ending| start_time > ending }
       return counter << [start_time, end_time, items]
     end
 
     i = 0
     while i < counter.length
-      if start_time > counter[i][0] && end_time < list[i][1]
+      # if current ride begins after and
+      if start_time > counter[i][0] && start_time < counter[i][1] && end_time == counter[i][1]
+        new_interval = [start_time, end_time, sum_inventory(counter[i][2], items)]
+        counter[i][1] = start_time
+        counter.insert(i+1, new_interval)
+        i += 1
+      elsif
+        start_time > counter[i][0] && start_time < counter[i][1] && end_time < counter[i][1]
+        new_interval = [start_time, end_time, sum_inventory(counter[i][2], items)]
+        new_interval_2 = [end_time, counter[i[1]], counter[i][2]]
+        counter[i][1] = start_time
+        counter.insert(i+1, new_interval)
+        counter.insert(i+2, new_interval_2)
+        i += 2
+      elsif
+        start_time > counter[i][0] && start_time < counter[i][1] && end_time > counter[i][1]
+        new_interval = [start_time, counter[i][1], sum_inventory(counter[i][2], items)]
+        new_interval_2 = [counter[i][1], end_time, items]
+        counter[i][1] = start_time
+        counter.insert(i+1, new_interval)
+        counter.insert(i+2, new_interval_2)
+        i += 2
       end
       i += 1
     end
+    counter
   end
 
-  def factor_overlap(starting_inventory, additional_inventory)
-    list = Hash[old_list.map {|item, count| [k, v.to_i]}]
-    new_list.each do |item, count|
-      list[key] ||= 0
-      list[key] = value.to_i
+  def sum_inventory(starting_inventory, additional_inventory)
+    inventory = Hash[starting_inventory.map {|item, count| [item, count.to_i]}]
+    additional_inventory.each do |item, count|
+      inventory[item] ||= 0
+      inventory[item] += count.to_i
     end
-    list
+    inventory
   end
 
 end
 
 example = Ride.new("07:20", "08:30","2 diamonds, 1 emerald")
-example2 = Ride.new("09:20", "10:30","3 diamonds, 1 snowball")
+example2 = Ride.new("08:00", "09:30","3 diamonds, 1 snowball")
 
 Inventory = ItemCounter.new("Ride Counter")
 Inventory.process_ride(example)
 Inventory.process_ride(example2)
-# Inventory.counter
 Inventory.print_items_per_interval()

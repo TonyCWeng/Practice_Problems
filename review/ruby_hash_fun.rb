@@ -28,3 +28,6 @@
 # [4,5,6]]
 # x = 10
 # p a.all? { |a,b,c| a < x}
+
+a = [[2,3], [1,2]]
+sorted = a.sort_by { |a,b| a }
