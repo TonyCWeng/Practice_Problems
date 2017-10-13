@@ -29,5 +29,7 @@
 # x = 10
 # p a.all? { |a,b,c| a < x}
 
-a = [[2,3], [1,2]]
-sorted = a.sort_by { |a,b| a }
+a = [1,2,3,4,5]
+a.insert(1, 12)
+a.insert(1,13)
+p a
