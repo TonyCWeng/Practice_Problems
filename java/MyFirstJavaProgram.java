@@ -5,3 +5,5 @@ public class MyFirstJavaProgram {
 
 	}
 }
+
+//"javac filename.java, then java the newly created class"

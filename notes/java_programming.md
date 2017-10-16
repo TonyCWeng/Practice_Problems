@@ -66,3 +66,8 @@ if(userInput.hasNextLine()) {
 ## Strong and Weak Typing
 - Strong typing: variables are declared with a specific data type.
 - In a weak-typed language, variables can be coerced into a different type (implicit typing).
+
+## Ternary Operator (just like in Ruby)
+int points = 10;
+char gameResult = (points > 30) ? 'W' : 'L';
+System.out.println(gameResult);
