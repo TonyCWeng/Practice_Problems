@@ -18,3 +18,5 @@ public class Switch {
 
 	}
 }
+
+// put a break after each case.

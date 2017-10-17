@@ -67,7 +67,12 @@ if(userInput.hasNextLine()) {
 - Strong typing: variables are declared with a specific data type.
 - In a weak-typed language, variables can be coerced into a different type (implicit typing).
 
-## Ternary Operator (just like in Ruby)
+## Ternary Operator
+- Similar to Ruby, but conditional inside brackets is a must
 int points = 10;
 char gameResult = (points > 30) ? 'W' : 'L';
 System.out.println(gameResult);
+
+## String interpolation (Java 5 and above)
+- String name = String.format("%s is %d years old.", name, age);
+- %c = char, %d = decimal integer, %s = string,  %b = boolean (among others)
