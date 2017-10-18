@@ -23,3 +23,12 @@ def merge(left, right)
   end
   merged + left + right
 end
+
+def merge_sort(arr)
+  return arr if arr.length < 1
+
+  middle = arr.length / 2
+  left = arr[0..middle]
+  right = [middle+1..arr.length-1]
+
+  
