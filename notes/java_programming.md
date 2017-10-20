@@ -47,6 +47,7 @@ System.out.print("Enter a name: \n");
 if(userInput.hasNextLine()) {
 
 }
+
 ## Variable Interpolation in Java
 - String.format("%s is %d years old.", name, date)
 

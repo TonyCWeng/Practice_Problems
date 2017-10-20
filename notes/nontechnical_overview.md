@@ -35,3 +35,6 @@ component should re-render. Occurs before mounted component receives next props.
 ### Unmounting
 - ComponentWillUnmount(); invoked before component is unmounted and destroyed.
   - Utilized for Component clean-up (invalidate timers, cancel network requests, clear up DOM elements created by componentDidMount).
+
+## Iteration vs Recursion
+- Iteration makes use of loops to perform the same step over and over whereas in recursion, the recursive function makes a call to itself with changed inputs to repeat the process. Recursion has a drawback in depth, as it continues to draw up intermediate results on the stack as needed. Due to stack depth limitations, it is possible for one's program to stop functioning before ever reaching its solution.

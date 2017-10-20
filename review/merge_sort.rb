@@ -1,10 +1,9 @@
 def merge_sort(arr)
-  return arr if arr.length < 1
+  return arr if arr.count == 1
 
   middle = arr.length / 2
-
   left = arr[0...middle]
-  right = [middle...arr.length]
+  right = arr[middle...arr.length]
 
   sorted_left = merge_sort(left)
   sorted_right = merge_sort(right)
@@ -15,7 +14,7 @@ end
 def merge(left, right)
   merged = []
   until left.empty? || right.empty?
-    if left.first <= right.first
+    if left[0] < right[0]
       merged << left.shift
     else
       merged << right.shift
@@ -24,11 +23,4 @@ def merge(left, right)
   merged + left + right
 end
 
-def merge_sort(arr)
-  return arr if arr.length < 1
-
-  middle = arr.length / 2
-  left = arr[0..middle]
-  right = [middle+1..arr.length-1]
-
-  
+p merge_sort([4, 1, 6, 8])

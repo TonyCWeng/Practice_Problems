@@ -23,3 +23,9 @@
 
 ### User Defined Integrity
 - Business rules that dictate what follows after a specific action occurs.
+
+## Relationships
+- 3 types: 1:1, one-to-many, many-to-many
+- One-to-one, ex. one customer to one account
+- One-to-many, ex. one mother to many children
+- Many-to-many, books to authors (many books written by one author, one book written by two co-authors)

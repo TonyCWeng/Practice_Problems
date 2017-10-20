@@ -6,10 +6,9 @@
 - For objects, it is pass by value of the reference to the objects
 
 ## Object vs Class (Java)
-- A Class is a template that describes the details of an object
+- A Class is a template that describes the details of an object.
 - A Class is composed of a name, attributes (variables), and operations (methods)
 - An object is an instance of a class
-
 
 ## Interface
 - Interfaces can only have constants and method stubs (methods without a body)
@@ -56,8 +55,16 @@
 
 ## Aggregation
 - "uses" relationship to describe weak ownership of one class over another.
-  - Example being that a "School" uses "teachers".
+  - Example being that a "School" uses "teachers", but teachers do not depend on the school for existence and can transfer to other schools.
 
 ## Composition
 - "owns" to describe a strong "has a" relationship.
-- Ex. A department has courses.
+- A "Car" owns an engine, wheels, etc. The car is the composition.
+
+## Immutable Class
+- State cannot change.
+- Ex. In Java, Strings are immutable and concatenating or uppercasing it results in the creation of a new object.
+
+## Static Variable
+- Lifetime is the entire run of the program/function
+- Automatic variables (storage is stack allocated and deallocated upon call)
