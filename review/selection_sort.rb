@@ -1,4 +1,7 @@
 # selection sort works in-place, swapping out values for lower ones.
+# should operate by finding the lowest element in the array and swapping
+# it with the first element in the array, then going on to find the 2nd
+# smallest element and swapping it in.
 # time complexity of O(n**2), extra space complexity of O(1)
 def selection_sort(arr)
   min_idx = 0

@@ -1,5 +1,5 @@
 # In-place quick sort
-# Same
+# worst cases: array is already sorted, sorted in reverse, all elements are the same
 
 def self.partition(array, start, length, &prc)
   prc ||= Proc.new {|el1, el2| el1 <=> el2 }
@@ -29,4 +29,10 @@ def self.sort(array, start = 0, length = array.length, &prc)
   sort(left)
   sort(right)
   array
+end
+
+def quick_sort(arr)
+  pivot = arr[0]
+
+
 end

@@ -68,3 +68,8 @@
 ## Static Variable
 - Lifetime is the entire run of the program/function
 - Automatic variables (storage is stack allocated and deallocated upon call)
+
+## Hash Map Collision
+- Dealt with in two ways.
+  - 1) By having each bucket contain a linked list of elements hashed to that bucket.
+  - 2) If the hash table is not full, then an algorithm to push the value into an unfilled bucket. If the bucket is full,  then a method to increase the number of buckets available and redistribute entries.
