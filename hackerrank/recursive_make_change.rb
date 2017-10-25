@@ -10,7 +10,7 @@ def make_change(target, coins = [25, 10, 5, 1])
   best_change = nil
   coins.each_with_index do |coin, index|
     next if coin > target
-
+    target -= coin
   end
   return best_change if best_change.nil?
   best_change.count

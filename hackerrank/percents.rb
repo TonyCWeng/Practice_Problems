@@ -13,5 +13,5 @@ def plus_minus(arr)
       neg += 1
     end
   end
-  
+  [pos, neg, zeroes]
 end
