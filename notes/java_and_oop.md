@@ -21,7 +21,8 @@
 - Inheritance, Polymorphism, Encapsulation, Abstraction
 
 ## Abstraction
-- Reducing complexity by hiding irrelevant details
+- Implementation of an object, containing properties and actions that should be reflective of what it represents. (i.e., a Dog should be able to Bark, not Moo)
+- Reducing complexity by hiding irrelevant details (helper methods being private, for example)
 - Generalization: reducing complexity by replacing multiple entities with a single one that performs the same/similar functions
 
 ### Abstract Class
@@ -30,9 +31,11 @@
 
 ## Inheritance
 - when one class (subclass) inherits properties from another class (superclass) in the form of methods and fields (variables that belong to a class)
+- Introduces a way to reuse code, keeping one's design DRY
 
 ## Polymorphism ( and two other forms: compile-time and runtime)
 - means one to many. Usually in reference to an object belonging to more than one class.
+-
 - Ex. Animal class can have a subclass of Cat. If we had an instance of a Cat called Max, it would belong to both the Cat Class and the Animal superclass.
   - Strictly speaking, any Java object is polymorphic in nature in the sense that it would pass the IS-A test for itself and for the Object class. But it's a bit pedantic.
 
@@ -47,7 +50,7 @@
 
 ## Encapsulation (private variables)
 - In order to access to variables, designer can provide public setter and getter methods.
-- Purpose is to hide the class's implementation while enabling other classes to access its methods.
+- Purpose is to hide the class's implementation while enabling other classes to access its methods. Prevent users from being able to set the internal data of the component into an invalid or inconsistent state.
 
 ## Association
 - "has a" relationship between two classes, with no particular ownership established.
