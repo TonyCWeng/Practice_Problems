@@ -20,4 +20,4 @@ const allUniqueAlt = str => {
   return true;
 };
 
-console.log(allUniqueAlt("apple"));
+console.log(allUniqueAlt("aple"));
