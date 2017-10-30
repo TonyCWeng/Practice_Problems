@@ -57,7 +57,7 @@ if(userInput.hasNextLine()) {
 - || Returns true if either boolean value is true. Stops evaluating at first true.
 - | : Or. Returns true if either boolean value is true. Always evaluates left and right side.
 - ! : reverses trues and false
-- ^ : XOR operator. Checks for one true and one false.
+- ^ : XOR operator. Checks for exactly one true and exactly one false.
 
 ## Static and Dynamic Typing (data type)
 - In a static typed programming language (such as Java), variables do not need to be defined before they are used.

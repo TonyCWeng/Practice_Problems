@@ -58,7 +58,7 @@
 
 ## Aggregation
 - "uses" relationship to describe weak ownership of one class over another.
-  - Example being that a "School" uses "teachers", but teachers do not depend on the school for existence and can transfer to other schools.
+  - Example being that a "School" employs many "teachers", but teachers do not depend on the school for existence and can transfer to other schools.
 
 ## Composition
 - "owns" to describe a strong "has a" relationship.
