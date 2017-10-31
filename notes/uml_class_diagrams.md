@@ -16,8 +16,10 @@
 - Private (-): Class methods only. No subclasses
 - Attributes should always be Private or Protected.
 
-### Multiplicity
-- rules on attributes (Ex. - favoriteNumbers: int[1..10] would suggest there being 1 to 10 different favorite numbers)
+### Multiplicity (Cardinality)
+- Cardinality refers to the number of elements we should expect to find in some attribute/field
+- Multiplicity enables one to specify cardinality on a field
+  - (Ex. - favoriteNumbers: int[1..10] would suggest there being 1 to 10 different favorite numbers)
   - known range of args: [min..max]
   - Unknown number of args: * inside brackets
   - {unique}, {notUnique}
