@@ -18,8 +18,8 @@
 
 ### Multiplicity (Cardinality)
 - Cardinality refers to the number of elements we should expect to find in some attribute/field
-- Multiplicity enables one to specify cardinality on a field
-  - (Ex. - favoriteNumbers: int[1..10] would suggest there being 1 to 10 different favorite numbers)
+- Multiplicity refers to a range specified by a lower and upper bound cardinality
+  - (Ex. - favoriteNumbers: int[1..10] would suggest there being 1 to 10 different favorite numbers).
   - known range of args: [min..max]
   - Unknown number of args: * inside brackets
   - {unique}, {notUnique}
@@ -42,8 +42,12 @@
 
 ### Abstract Class Diagram
 - Signified by class name being italicized
-- Methods are defined on the abstract class, but implementation is left on the subclass side.
+- Can contain a mix of abstract and regular methods.
+- Used to provide partial implementation of more than one subclass. Way to DRY code and avoid rewriting shared behavior.
+- Inheritance is indicated with a solid white arrow pointing at the superclass
 
 ### Interfaces
-- contain only abstract methods, attributes are either static or constants.
+- contain only abstract methods, attributes are either static or constants (Models behavior, essentially).
+- Abstract methods are methods that are declared, but implementation is left on the subclass.
 - use either ball notation or stereotyped (<< >>).
+- Signified by a dotted white line directed at the interface
