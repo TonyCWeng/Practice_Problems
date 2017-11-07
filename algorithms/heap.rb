@@ -17,16 +17,16 @@ class BinaryMinHeap
     raise "no element to extract" if count == 0
     val = store[0]
     if count > 1
-      store[0] = store.pop
+      @store[0] = store.pop
       heapify_down
     else
-      store.pop
+      @store.pop
     end
     val
   end
 
   def add(el)
-    store << el
+    @store << el
     heapify_up
   end
 
@@ -40,9 +40,12 @@ class BinaryMinHeap
   end
 
   def heapify_up()
-    parent_val = store[parent_index]
-    while (parent_index(count-1) && parent_val > store[count-1])
-      
+    new_entry_idx = count - 1
+    parent_val = store[parent_index(new_entry_idx)]
+    while (parent_index(new_entry_idx) && parent_val > store[new_entry_idx])
+      @store[new_entry_idx], @store[parent_index(new_entry_idx)] = @store[parent_index(new_entry_idx)], @store[new_entry_idx]
+      new_entry_idx = parent_index(new_entry_idx)
     end
+  end
 
 end
