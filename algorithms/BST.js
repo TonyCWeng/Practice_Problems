@@ -21,7 +21,10 @@ class Node {
       }
     }
   }
-
+  //in order: left, node, right (visit node after visiting its left child)
+  //preorder: node, left, right (visit node before its children)
+  //postorder: left, right, node (visit node after visiting its children)
+  
   visit_in_order() {
     if (this.left !== null) {
       this.left.visit_in_order();
@@ -40,6 +43,16 @@ class Node {
     if (this.right !== null) {
       this.right.visit_preorder();
     }
+  }
+
+  visit_postorder() {
+    if (this.left !== null) {
+      this.left.visit_postorder();
+    }
+    if (this.right !== null) {
+      this.right.visit_postorder();
+    }
+    console.log(this.value);
   }
 }
 
@@ -65,6 +78,10 @@ class Tree {
     this.root.visit_preorder();
   }
 
+  traverse_postorder() {
+    this.root.visit_postorder();
+  }
+
   preOrderTraversal(root) {
   console.log(root.data);
     if (root.left) {
@@ -74,7 +91,7 @@ class Tree {
       this.preOrderTraversal(root.right);
     }
   }
-  
+
 }
 var tree = new Tree();
 tree.addValue(40);
