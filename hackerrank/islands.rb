@@ -1,4 +1,3 @@
-
 def count_islands(matrix)
   # matrix of n x m size
   rows = matrix.length
