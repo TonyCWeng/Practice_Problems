@@ -1,15 +1,16 @@
 require 'set'
 
+# return a linked list with its duplicate values removed
 def remove_duplicates(list)
-  uniques = Set.new
+  uniques = Set.new()
   current = list
   prev = nil
 
   while current
-    if set.include?(current.value)
+    if uniques.include?(current.value)
       prev.next = current.next
     end
-    set.add(current.value)
+    uniques.add(current.value)
     prev = current
     current = current.next
   end
