@@ -27,3 +27,34 @@ class Node
   end
 
 end
+
+class LinkedList
+
+  def initialize
+    @head = Node.new
+    @tail = Node.new
+    # the head and tail are both empty nodes.
+    # they serve as sentry nodes, denoting the start and end of the linked list
+    # and should not count as a proper linked list entry despite being nodes
+    @head.next = @tail
+    @tail.prev = @head
+  end
+
+  # def [](x)
+  #   each_with_index { |node, y| return node if x == y }
+  #   nil
+  # end
+
+  def empty?
+    @head.next == @tail
+  end
+
+  def first
+    empty? ? nil : @head.next
+  end
+
+  def last
+    empty? ? nil : @tail.prev
+  end
+
+end
