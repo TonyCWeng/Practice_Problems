@@ -1,6 +1,6 @@
 ## Box-Sizing
-- padding + border are included in the element's total width and height.
-- Note that margin is not.
+- Padding + border add to the element's total width and height.
+- Margin does not. Margin determines the minimum distance that an element must be from any other. The margin requirements of two neighboring elements are not additive. If one element requires a margin of 50px and the other 100px, there will be a margin of 100px between the two.
 
 ## CSS Positioning
 - Static (default): element rendered in order, as it is dictated by flow.
@@ -23,3 +23,7 @@
 - content: used for multi-line flex boxes. No effect on single line. Uncommonly used.
 - center/flex-start/flex-end/space-between/space-around
 - space between vs space-around: Space-between evenly spaces elements whereas space-around introduces half-sized spaces on both ends as well.
+
+## CSS box model
+- Avoid setting height constraints, as the contents of the box is capable of overflowing from it, rendering such a constraint useless and potentially confusing.
+- Width constraints, on the other hand, are properly observed.
