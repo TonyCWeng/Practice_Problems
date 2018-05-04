@@ -1,6 +1,15 @@
-## Box-Sizing
-- Padding + border add to the element's total width and height.
-- Margin does not. Margin determines the minimum distance that an element must be from any other. The margin requirements of two neighboring elements are not additive. If one element requires a margin of 50px and the other 100px, there will be a margin of 100px between the two.
+## Box-Sizing (Default Behavior)
+- Display: Box
+- Padding adds to an element's total width and height. Transparent.
+- Border adds to an element's total width and height. It is not transparent.
+- Margin does not add to an element's dimensions. Margin determines the minimum distance that an element must be from any other element. The margin requirements of two neighboring elements are not additive. If one element requires a margin of 50px and the other 100px, there will be a margin of 100px between the two. The larger of the two margin requirements is observed.
+- Total Width = Width + (Left + Right Padding) + (Left + Right Border)
+
+## Display: In-line
+- Does not obey width or height constraints
+- Padding works horizontally, but top and bottom causes a weird overflow issue. Anything declared later is basically layered on top of its predecessors. Generally won't be used.
+- Same goes with border.
+- Margin pushes inline elements towards the left and right, but does not work in regards to top and bottom.
 
 ## CSS Positioning
 - Static (default): element rendered in order, as it is dictated by flow.
