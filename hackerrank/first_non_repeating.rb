@@ -11,4 +11,14 @@ def non_repeating2(str)
   nil
 end
 
-p non_repeating2("apple")
+require 'set'
+# .add? returns self if it successfully adds the item into the set,
+# else, it will return nil
+def non_repeating3(str)
+  set = Set.new
+  str.each_char do |char|
+    return char unless set.add?(char)
+  end
+end
+
+p non_repeating3("apple")
