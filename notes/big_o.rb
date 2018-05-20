@@ -1,3 +1,6 @@
+# Big O is used to describe the complexity/performance of an algorithm
+# (usually the best or average case scenario is considered).
+
 # example 1
 def sum_and_product(arr)
   sum = arr.inject(0, :+)

@@ -15,11 +15,13 @@ noko.css('li').each do |link|
     url = link.css('a').attribute('href').value
     noko = Nokogiri::HTML(open(url))
   rescue OpenURI::HTTPError => e
+    counter += 1
     next
   end
   good_links << link
 end
 p good_links
+p counter
 
 # Resultant good_links = [<li><a href="https://scottduane.github.io/SecretClue7">File 277</a></li>,
 # <li><a href="https://scottduane.github.io/SecretClue1191">File 1191</a></li>,
@@ -34,5 +36,4 @@ p good_links
 # where url = some website's address
 # Can do Nokogiri::HTML(RestClient.get(url))
 
-# if we wanted to only search the first X links, we could limit the each loop like so
-# arr[0..10].each do |x|
+# if we wanted to only search the first X links, we could limit the each loop
