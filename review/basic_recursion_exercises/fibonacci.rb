@@ -12,7 +12,7 @@ def fibonacci_sequence(n)
   fibs << fibs[-2] + fibs[-1]
 end
 
-p fibonacci_sequence(10)
+# p fibonacci_sequence(10)
 
 def fibonacci_value(n)
   return 0 if n == 1
@@ -21,4 +21,14 @@ def fibonacci_value(n)
   fibonacci_value(n - 1) + fibonacci_value(n - 2)
 end
 
-p fibonacci_value(10)
+# p fibonacci_value(10)
+
+# Issue: The Fibonacci sequence will have a time complexity of 2**n.
+# Memoization can be used to prevent this growth
+
+@cache = [0, 1]
+def fib(n)
+  return @cache[n] if @cache[n]
+
+  @cache[n] = fib(n - 1) + fib(n - 2)
+end
