@@ -14,20 +14,27 @@ def minimum_jumps(arr)
   while destination_idx < arr.length
     current_idx = 0
     while current_idx < destination_idx
-      if can_jump?()
-        jump_idx[destination_idx] = current_idx
+      if can_jump?(arr, current_idx, destination_idx)
         if num_jumps[destination_idx].nil?
           num_jumps << num_jumps[current_idx] + 1
+          jump_idx[destination_idx] = current_idx
         elsif num_jumps[current_idx] + 1 < num_jumps[destination_idx]
           num_jumps[destination_idx] = num_jumps[current_idx] + 1
+          jump_idx[destination_idx] = current_idx
         end
       end
       current_idx += 1
     end
     destination_idx += 1
   end
+  num_jumps[-1]
 end
 
-def can_jump?(current_idx, destination_idx, num_jumps, jump_idx)
-
+# helper method to determine if we can reach the destination index from
+# the current index
+def can_jump?(arr, current_idx, destination_idx)
+  current_idx + arr[current_idx] >= destination_idx
 end
+
+p minimum_jumps([2, 3, 1, 1, 4])
+p minimum_jumps([2, 3, 1, 1, 2, 4, 2, 0, 1, 1])
