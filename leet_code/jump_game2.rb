@@ -12,7 +12,7 @@ def minimum_jumps(arr)
   # being where to jump from.
   destination_idx = 1
   while destination_idx < arr.length
-    current_idx = 0
+    current_idx = find_starting_idx(destination_idx, jump_idx)
     while current_idx < destination_idx
       if can_jump?(arr, current_idx, destination_idx)
         if num_jumps[destination_idx].nil?
@@ -27,7 +27,12 @@ def minimum_jumps(arr)
     end
     destination_idx += 1
   end
-  num_jumps[-1]
+  num_jumps.last
+end
+
+#
+def find_starting_idx(destination_idx, jump_idx)
+  jump_idx.length > 1 ? jump_idx[destination_idx - 1] : 0
 end
 
 # helper method to determine if we can reach the destination index from
