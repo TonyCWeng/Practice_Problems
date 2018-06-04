@@ -5,10 +5,11 @@
 
 def maximize_weight(weights, values, weight_limit)
   # default each value to 0, that is, not selected
+  # filler row and column to signify value of 0 and weight of 0
   cache = Array.new(weights.length + 1) { Array.new(weight_limit + 1)}
 
-  for i in 0..values.length
-    for j in 0..weight_limit
+  (0..values.length).each do |i|
+    (0..weight_limit).each do |j|
       if i == 0 || j == 0
         cache[i][j] = 0
         next
