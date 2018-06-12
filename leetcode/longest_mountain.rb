@@ -4,31 +4,28 @@
 # 0 if there is no mountain present.
 
 def longest_mountain(arr)
-  # cache mountain length at each index
+  return 0 if arr.length == 0
   mountain_cache = Array.new(arr.length, 0)
   idx = 0
-  while idx < arr.length - 1
+  while idx < arr.length - 2
     mountain_cache[idx] = identify_mountain(arr, idx)
-    idx = idx + mountain_cache[idx] + 1
+    mountain_cache[idx] == 0 ? idx += 1 : idx = idx + mountain_cache[idx] - 1
   end
-  mountain_cache
+  mountain_cache.max
 end
 
 def identify_mountain(arr, start_idx)
   idx = start_idx
   return 0 unless arr[idx] < arr[idx + 1]
-  while arr[idx] < arr[idx + 1] && idx + 1 < arr.length
+  while idx + 2 < arr.length && (arr[idx] < arr[idx + 1])
     idx += 1
   end
 
   idx2 = idx
   return 0 unless arr[idx2] > arr[idx2 + 1]
 
-  while arr[idx2] > arr[idx2 + 1] && idx2 + 1 < arr.length
+  while idx2 + 1 < arr.length && arr[idx2] > arr[idx2 + 1]
     idx2 += 1
   end
-  p idx2
   arr[start_idx..idx2].length
 end
-
-p longest_mountain([2,1,4,7,3,2,5])
