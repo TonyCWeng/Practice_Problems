@@ -37,3 +37,25 @@ def identify_mountain(arr, start_idx)
   end
   arr[start_idx..idx2].length
 end
+
+# Without the cache, keeping track of current maximum.
+# Don't really need dynamic programming for this solution, as
+# we only ever need to keep track of a current maximum mountain range
+# length and the max from the current idx, updating the max as necessary.
+# Can use the exact same helper method.
+def longest_mountain(arr)
+  return 0 if arr.length < 3
+  max = 0
+  idx = 0
+
+  until arr[idx + 2].nil?
+    max_from_idx = identify_mountain(arr, idx)
+    if max_from_idx > max
+      max = max_from_idx
+      idx = idx + max_from_idx - 1
+    else
+      idx += 1
+    end
+  end
+  max
+end
