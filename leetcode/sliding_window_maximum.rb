@@ -5,8 +5,7 @@ def max_sliding_window(nums, k)
   current_window = []
 
   while i < nums.length
-    # remove the front most element if it is out of the current window's
-    # index range
+    # remove the front most element once we've passed it.
     if !current_window.empty? && current_window[0] == i - k
       current_window.shift
     end
