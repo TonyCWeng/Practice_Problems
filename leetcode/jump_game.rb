@@ -27,25 +27,3 @@ end
 # p can_jump?([1, 1, 1, 0, 4])
 p can_jump?([2, 0, 1, 1, 0, 4])
 p can_jump?([1, 3, 0, 4, 1])
-
-def can_jump?(nums)
-  length = nums.length
-  idx = 0
-  maximum_idx = nums[0]
-
-  while idx < length && idx <= maximum_idx
-    return true if maximum_idx >= length - 1
-    current_reach = idx + nums[idx]
-    maximum_idx = current_reach if maximum_idx < current_reach
-    idx += 1
-  end
-  false
-end
-
-def min_jumps(nums)
-  length = nums.length
-  idx = 0
-  maximum_reach = nums[0]
-
-  while idx < length && idx <= maximum_idx
-end

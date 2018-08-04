@@ -14,14 +14,12 @@ def max_sliding_window(nums, k)
     # than the current index in consideration. We start at the end as it is
     # possible for elements later in the array to be smaller than the first
     # element.
-    p [nums[i], current_window]
     while !current_window.empty? && nums[current_window[-1]] < nums[i]
       current_window.pop
     end
 
     current_window << i
     if i >= k - 1
-      p [i, current_window]
       maximums << nums[current_window[0]]
     end
     i += 1
