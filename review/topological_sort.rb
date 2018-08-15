@@ -1,7 +1,7 @@
 require 'set'
 
 class Node
-  attr_accessor :name, :children
+  attr_accessor :children
 
   def initialize(name)
     # Using a set prevents any issue where we add the same node to children
