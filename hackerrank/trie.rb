@@ -1,3 +1,5 @@
+require 'byebug'
+
 class TrieNode
   attr_accessor :children, :is_complete
   def initialize(children = {}, is_complete = false)
@@ -77,41 +79,29 @@ class Trie
     recursive_delete(@root_node, word, 0)
   end
 
-  # def recursive_delete(current_node, word, index)
-  #   if index == word.length
-  #     return false unless current_node.is_complete
-  #     current_node.is_complete = false
-  #     return current_node.children.empty?
-  #   end
-  #   char = word[index]
-  #   node = current_node.children[word[index]]
-  #   if node.nil?
-  #     return false
-  #   end
-  # end
-
   def recursive_delete(current_node, word, index)
-    if index == word.length - 1
-      node = current_node.children[word[index]]
-      if node.nil? || !node.is_complete
+    if index == word.length
+      if !current_node.is_complete
         return false
-      else
-        node.is_complete = false
-        return
-      end      
+      end
+      current_node.is_complete = false
+      return current_node.children.empty?
     end
-
-    # while index < word.length
-    #   node = current_node.children[word[index]]
-    #   if node.nil? && index < word.length - 1
-    #     return false
-    #   elsif index == word.length - 1 && node.is_complete
-
-
+    char = word[index]
+    node = current_node.children[char]
+    return false if node.nil?
+    delete_current_node = recursive_delete(node, word, index + 1)
+    if delete_current_node
+      current_node.children.delete(char)
+      return current_node.children.empty?
+    end
+    false
   end
 end
 new_trie = Trie.new
 new_trie.insert("apples")
-new_trie.insert("b")
-p new_trie.search("b")
-p new_trie.search_prefix("app")
+# new_trie.insert("b")
+# p new_trie.search("b")
+# p new_trie.search_prefix("app")
+p new_trie.delete_word("apples")
+p new_trie
