@@ -1,6 +1,6 @@
 # Given an array of integers greater than zero, find out if it is possible
 # to split the array into two subarrays of equal sums.
-# Print the two subarrays if it possible. Otherwise, return false
+# Print the two subarrays if it possible. Otherwise print 'Not possible to split'.
 
 def equal_split?(nums)
   total = nums.inject(0, :+)
@@ -14,9 +14,9 @@ def equal_split?(nums)
     i += 1
   end
   if total == potential_half
-    p [nums.take(i + 1), nums.drop(i + 1)]
+    print [nums.take(i + 1), nums.drop(i + 1)]
   else
-    p 'Not possible to split'
+    print 'Not possible to split'
   end
 end
 
