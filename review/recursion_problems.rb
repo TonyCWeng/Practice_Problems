@@ -4,9 +4,17 @@
 def sum_recur(array)
   #base case
   return 0 if array.empty?
-
   #iterative step
   array.first + sum_recur(array[1..-1])
+end
+
+# iterative
+def sum_array(arr)
+  sum = 0
+  arr.each do |x|
+    sum += x
+  end
+  sum
 end
 
 # Sum_recur would have a linear time complexity, as we are iterating through
@@ -22,6 +30,15 @@ def includes?(array, target)
   includes?(array[1..-1])
 end
 
+# iterative
+def include?(arr, target)
+  return false if arr.empty?
+  arr.each do |x|
+    return true if x == target
+  end
+  false
+end
+
 # Problem 3: You have an unsorted array of integers. Write a recursive solution
 # to count the number of occurrences of a specific value.
 
@@ -29,6 +46,15 @@ def num_occur(array, target)
   return 0 if array.empty?
   occurrence = array.first == target ? 1 : 0
   occurrence + num_occur(array.drop(1))
+end
+
+def num_occurrences(nums, value)
+  return 0 if nums.empty?
+  occurrences = 0
+  nums.each do |x|
+    occurrences += 1 if x == value
+  end
+  occurrences
 end
 
 # Problem 4: You have array of integers. Write a recursive solution to determine
@@ -45,8 +71,20 @@ end
 
 def sorted?(array)
   return true if array.length <= 1
-  return false if array > array[1]
+  return false if array[0] > array[1]
   sorted?(array.drop(1))
+end
+
+def sorted2?(arr)
+  return true if array.length < 2
+  i = 0
+  while i < arr.length - 1
+    if arr[i] > arr[i + 1]
+      return false
+    end
+    i += 1
+  end
+  true
 end
 
 # Problem 6: Write a recursive function to reverse a string. Don't use any
@@ -55,6 +93,14 @@ end
 def reverse(string)
   return string if string.length == 0
   string.last + reverse(string[0...-1])
+end
+
+def reverse2(string)
+  reversed = ''
+  string.each_char do |char|
+    reversed = char + reversed
+  end
+  reversed
 end
 
 #Digital root. sum the digits of a positive integer. If the num is >= 10,
