@@ -91,7 +91,7 @@ end
 # built-in #reverse methods!
 
 def reverse(string)
-  return string if string.length == 0
+  return string if string.empty?
   string.last + reverse(string[0...-1])
 end
 
