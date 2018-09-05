@@ -16,7 +16,6 @@ def sum_array(arr)
   end
   sum
 end
-
 # Sum_recur would have a linear time complexity, as we are iterating through
 # Each element of the input array.
 
