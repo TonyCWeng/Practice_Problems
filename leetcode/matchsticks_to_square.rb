@@ -2,19 +2,33 @@ def makesquare(nums)
   perimeter = nums.inject(0, :+)
   return false unless perimeter % 4 == 0
   ideal_side_length = perimeter / 4
-  used_sticks = Array.new(nums.length, false)
   completed_sides = 0
-  i = 0
-  current_side = 0
+  unused_nums = nums.sort.reverse
   while completed_sides < 4
-    # escape if we are unable to finish a side by the time we get to the last
-    # number in the array.
-    return false if i > nums.length
-    if current_side == ideal_side_length
+    next_set = make_side(unused_nums, ideal_side_length)
+    sum = next_set.inject(0, :+)
+    if sum % ideal_side_length == 0
       completed_sides += 1
-      current_side = 0
-      i = used_sticks.find_index { |x| x == false }
+    else
+      return false
     end
-      current_side += nums[i]
+    unused_nums = next_set
+  end
+  completed_sides == 4
+end
+
+def make_side(unused_nums, ideal_side_length)
+  current_side_length = 0
+  i = 0
+  used_nums = []
+  while i < unused_nums.length
+    if current_side_length + unused_nums[i] <= ideal_side_length
+      current_side_length += unused_nums[i]
+      used_nums << unused_nums[i]
+    end
+    i += 1
+  end
+  used_nums.each do |num|
+    unused_nums.delete_at(unused_nums.index(num))
   end
 end
