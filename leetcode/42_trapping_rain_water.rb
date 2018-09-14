@@ -82,6 +82,7 @@ def trap(elevation_map)
   trapped = 0
   right_idx, right_height = nil, 0
   left_idx = elevation_map.find_index { |x| x > 0 }
+  return trapped if elevation_map.drop(left_idx+1).all? {|x| x == 0}
   left_height = elevation_map[left_idx]
   idx = left_idx + 1
 
@@ -97,16 +98,17 @@ def trap(elevation_map)
     right_idx = find_right(idx, left_height, elevation_map)
     break if right_idx.nil?
     right_height = elevation_map[right_idx]
+
     if right_height > 0
       trap_height = [left_height, right_height].min
       elevation_map[(left_idx + 1)...right_idx].each do |x|
-        trapped += [trap_height - x, 0].max
+        trapped += trap_height - x
       end
       left_height = right_height
       left_idx = right_idx
       right_height = 0
     end
-    idx = left_idx + 1
+    idx = right_idx + 1
   end
   trapped
 end
@@ -122,5 +124,7 @@ def find_right(idx, left_height, elevation_map)
   return right_idx + idx if right_idx
   elevation_map.drop(idx).each_with_index.sort.max.last + idx
 end
+
 p trap([0,1,0,2,1,0,1,3,2,1,2,1]) == 6
 p trap([5,2,1,2,1,5]) == 14
+p trap([4,4,4,7,1,0]) == 0
