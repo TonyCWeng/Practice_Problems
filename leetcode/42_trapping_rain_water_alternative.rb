@@ -12,14 +12,14 @@ def trap(heights)
 
   while left_idx < right_idx
     if heights[left_idx] < heights[right_idx]
-      if heights[left_idx] > left_wall
+      if heights[left_idx] >= left_wall
         left_wall = heights[left_idx]
       else
         trapped_water += left_wall - heights[left_idx]
       end
       left_idx += 1
     else
-      if heights[right_idx] > right_wall
+      if heights[right_idx] >= right_wall
         right_wall = heights[right_idx]
       else
         trapped_water += right_wall - heights[right_idx]
@@ -29,6 +29,10 @@ def trap(heights)
   end
   trapped_water
 end
+
+
+
+
 
 p trap([0,1,0,2,1,0,1,3,2,1,2,1]) == 6
 p trap([5,2,1,2,1,5]) == 14
