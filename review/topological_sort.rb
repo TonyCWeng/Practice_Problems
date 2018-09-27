@@ -27,28 +27,28 @@ class Graph
 end
 
 class TopologicalSort
-  attr_accessor :post_order, :visited
+  attr_accessor :topologically_sorted, :visited
 
   def initialize(graph)
-    @post_order = []
+    @topologically_sorted = []
     @visited = []
 
     graph.nodes.each do |node|
-      post_order_traversal(node) unless @visited.include?(node)
+      topologically_sorted_traversal(node) unless @visited.include?(node)
     end
   end
 
   private
 
-  def post_order_traversal(node)
+  def topologically_sorted_traversal(node)
     @visited << node
     node.children.each do |child|
-      post_order_traversal(child) unless @visited.include?(child)
+      topologically_sorted_traversal(child) unless @visited.include?(child)
     end
     # In a topological sort, the parent should always come before children.
-    # As such, we only add it to the array after we've gone through all
-    # of its children
-    @post_order.unshift(node)
+    # As such, we unshift nodes to the front of the array after their children
+    # have been completely explored.
+    @topologically_sorted.unshift(node)
   end
 end
 
@@ -73,4 +73,5 @@ test_graph.add_edge(node7, node9)
 test_graph.add_edge(node9, node8)
 
 
-p TopologicalSort.new(test_graph).post_order.map(&:to_s)
+p TopologicalSort.new(test_graph).topologically_sorted.map(&:to_s)
+p TopologicalSort.new(test_graph).visited.map(&:to_s)
