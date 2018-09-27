@@ -19,7 +19,7 @@ end
 
 # Don't really need to start from the end of the array. Can build up from
 # the first two values. From the third step and on, keep producing the
-# minimum cost of reaching said step.
+# minimum cost of reaching the next step.
 def min_cost(stairs)
   min_step_cost = [stairs[0], stairs[1]]
   idx = 2
