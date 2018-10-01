@@ -11,11 +11,4 @@ end
 # ex [1,2,3,4]
 # can think of [1,2,3,4] = [1] added to subsets of [2,3,4] plus the subsets of [2,3,4]
 
-def subsets(arr)
-  arr = []
-  i = 0
-  while i < arr.length
-    arr << arr.combination(i).to_a
-  end
-  arr.uniq
-end
+p subsets([1, 2, 3])

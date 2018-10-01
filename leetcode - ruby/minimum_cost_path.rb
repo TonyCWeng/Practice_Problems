@@ -30,7 +30,7 @@ def min_path_sum(grid)
   min_costs[rows - 1][cols - 1]
 end
 
-p min_path_sum([[1, 4, 9, 17], [5,6,7,12], [9,9,9,12]])
+p min_path_sum([[1, 4, 9, 17], [5, 6, 7, 12], [9, 9, 9, 12]])
 
 # We begin by populating the first row and column of the min_cost array,
 # as they are simply the sum of the values leading up and including the

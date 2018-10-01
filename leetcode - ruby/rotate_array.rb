@@ -33,10 +33,8 @@ def single_right_rotation2(arr)
   end
   arr
 end
-
-def rotate2(nums, k)
-  nums.rotate(k)
-end
+# Rotate in place has a time complexity of O(n * k) and space complexity of
+# O(1).
 
 def rotate3(nums, k)
   k.times do
@@ -44,3 +42,5 @@ def rotate3(nums, k)
   end
   nums
 end
+
+# Rotate3 hsa a time complexity of O(k) and space complexity of O(1)
