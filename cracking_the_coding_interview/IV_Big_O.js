@@ -35,3 +35,32 @@ function mod(a, b) {
 // This problem does constant work regardless of its inputs. It either
 // returns early or substracts and divides.
 // The time complexity is O(1);
+
+function div(a, b) {
+  let count = 0;
+  let sum = b;
+  while (sum <= a) {
+    sum += b;
+    count++;
+  }
+  return count;
+}
+// Time Complexity: O(a / b), as the while loop runs (a/b) times.
+
+function squareroot(n) {
+  return squarerootHelper(n, 1, n);
+}
+
+function squarerootHelper(n, min, max) {
+  if ( max < min) return -1;
+  // console.log(min, max);
+  let guess = Math.floor((min + max) / 2);
+  let squared = guess * guess;
+  if (squared === n) {
+    return guess;
+  } else if (squared < n) {
+    return squarerootHelper(n, guess + 1, max);
+  } else {
+    return squarerootHelper(n, min, guess - 1);
+  }
+}
