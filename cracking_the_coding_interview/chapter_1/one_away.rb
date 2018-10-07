@@ -1,5 +1,4 @@
-
-def one_away(str1, str2)
+def one_away?(str1, str2)
   case (str1.length - str2.length)
   when 1
     one_insert_away?(str1, str2)
@@ -14,7 +13,7 @@ end
 
 def one_replace_away?(str1, str2)
   differences = 0
-  str1.each_index do |idx|
+  str1.length.times do |idx|
     differences += 1 if str1[idx] != str2[idx]
     return false if differences > 1
   end
@@ -33,5 +32,6 @@ def one_insert_away?(str1, str2)
   end
   str1 == str2
 end
-p one_insert_away?("apple", "aple")
+p one_away?("apple", "aple")
+
 # apple pple aple
