@@ -7,7 +7,7 @@ def rob(nums)
     else
       odd_sum = [odd_sum + x, even_sum].max
     end
-    # p ["current_house: #{x}", "even_sum: #{even_sum}", "odd_sum: #{odd_sum}"]
+    p ["current_house: #{x}", "even_sum: #{even_sum}", "odd_sum: #{odd_sum}"]
   end
   even_sum > odd_sum ? even_sum : odd_sum
 end
@@ -16,4 +16,4 @@ end
 # current house should not be robbed in favor of the previous route's higher
 # yield.
 
-p rob([1000, 0, 0, 1001, 3000])
+p rob([1000, 0, 50, 1001, 3000, 10 ,15])
