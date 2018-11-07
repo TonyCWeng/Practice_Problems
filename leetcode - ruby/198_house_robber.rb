@@ -16,4 +16,4 @@ end
 # current house should not be robbed in favor of the previous route's higher
 # yield.
 
-p rob([1000, 0, 50, 1001, 3000, 10 ,15])
+p rob([1000, 0, 50, 1001, 3000, 10, 15])
