@@ -43,6 +43,5 @@ def cycle_detected?(head)
   end
   false
 end
-
 p cycle_detected?(a) == true
 p cycle_detected?(e) == false
