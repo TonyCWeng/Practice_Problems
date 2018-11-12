@@ -50,20 +50,9 @@ end
 
 # Limitations: is_palindrome2 only works for single digit values.
 
-a = ListNode.new(1)
-b = ListNode.new(2)
-c = ListNode.new(3)
-d = ListNode.new(2)
-e = ListNode.new(1)
-
-a.next = b
-b.next = c
-c.next = d
-d.next = e
-
-f = ListNode.new(111)
-g = ListNode.new(111)
-f.next = g
+# f = ListNode.new(111)
+# g = ListNode.new(111)
+# f.next = g
 # p is_palindrome2(a)
 # p is_palindrome2(f)
 
@@ -81,7 +70,7 @@ def is_palindrome3(head)
     second = second.next
   end
 
-  until first.nil? || second.nil?
+  while first && second
     return false unless first.val == second.val
     first = first.next
     second = second.next
@@ -114,4 +103,40 @@ def reverse_half_list(head, halfway_point)
 
   [prev, current_node]
 end
-p is_palindrome3(a)
+
+a = ListNode.new(1)
+b = ListNode.new(2)
+c = ListNode.new(3)
+d = ListNode.new(2)
+e = ListNode.new(1)
+
+a.next = b
+b.next = c
+c.next = d
+d.next = e
+
+#Faster method that reverses the latter half of the linked list.
+# Works the same for even and odd cases.
+def is_palindrome4(head)
+  first_half, second_half = head, head
+  while second_half && second_half.next
+    first_half = first_half.next
+    second_half = second_half.next.next
+  end
+
+  prev = nil
+  while first_half
+    next_node = first_half.next
+    first_half.next = prev
+    prev = first_half
+    first_half = next_node
+  end
+
+  while prev && head
+    return false if prev.val != head.val
+    prev, head = prev.next, head.next
+  end
+  true
+end
+
+p is_palindrome4(a)
