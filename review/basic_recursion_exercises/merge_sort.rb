@@ -4,7 +4,6 @@ def merge_sort(arr)
 
   left = arr[0...arr.length / 2]
   right = arr[arr.length / 2..-1]
-
   sorted_left = merge_sort(left)
   sorted_right = merge_sort(right)
 

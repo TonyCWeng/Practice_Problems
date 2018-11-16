@@ -31,7 +31,6 @@ def is_symmetric(root)
       next
       # Alternative, not use xor and use safe navigation operator (&.) on val.
       # left_node&.val != right_node&.val
-
     elsif left_node ^ right_node
       # If only the left/right node is nil, then the tree is not symmetric.
       return false
@@ -50,4 +49,17 @@ def is_symmetric(root)
     end
   end
   true
+end
+
+def recursive_is_symmetric(root)
+  return true if root.nil? || root.left.nil? && root.right.nil?
+  mirrored_symmetry?(root.left, root.right)
+end
+
+def mirrored_symmetry?(left_node, right_node)
+  return false if left_node.nil? ^ right_node.nil?
+  return false if left_node.val != right_node.val
+  return false unless left_node.val == right_node.val
+  mirrored_symmetry?(left_node.left, right_node.right) &&
+  mirrored_symmetry?(left_node.right, right_node.left)
 end
