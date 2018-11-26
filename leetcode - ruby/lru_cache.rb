@@ -19,16 +19,60 @@ class Node
 end
 
 class LRUCache
-  attr_accessor :head, :tail
   def initialize(capacity)
     @capacity = capacity
-    @cache = []
+    @cache = {}
     @head = Node.new(0, 0)
     @tail = Node.new(0, 0)
     @head.next = @tail
     @tail.prev = @head
   end
+
+  def get(key)
+    # If we find the key, we need to refresh it (as it is now the most
+    # recently accessed item in the cache). We can do so by removing it
+    # and adding it back to the cache.
+    if @cache[key]
+      node = @cache[key]
+      remove(node)
+      add(node)
+      node.value
+    else
+      return -1
+    end
+  end
+
+  def put(key, value)
+    remove(@cache[key]) if @cache[key]
+    node = Node.new(key, value)
+    add(node)
+    @cache[key] = node
+    if @cache.length > @capacity
+      least_recently_used = @tail.prev
+      remove(least_recently_used)
+      @cache.delete(least_recently_used.key)
+    end
+  end
+
+  private
+
+  def add(node)
+    # This implementation adds to the head, meaning that the LRU item is
+    # removed from the tail.
+    next_node = @head.next
+    @head.next = node
+    next_node.prev = node
+    node.prev = @head
+    node.next = next_node
+  end
+
+  def remove(node)
+    prev = node.prev
+    next_node = node.next
+    prev.next = next_node
+    next_node.prev = prev
+  end
 end
 
-a = LRUCache.new("apple")
+a = LRUCache.new(10)
 puts a.head == a.tail.prev

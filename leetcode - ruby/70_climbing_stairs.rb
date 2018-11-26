@@ -26,7 +26,7 @@ end
 
 # Time complexity: O(n). Space Complexity of O(n) (stack and memoization arr)
 
-p climb_stairs(4)
+# p climb_stairs(4)
 
 # Treating it as fibonacci numbers
 # If we so pleased, we could have started steps with climb_steps(0)== 1
@@ -45,10 +45,20 @@ def fib_climb_steps(steps)
   second_value
 end
 
+p fib_climb_steps(4)
+
 # This implementation would also have a time complexity of O(n), but has
 # the advantage of having a space complexity of O(1), as we need only initialize
 # a set number of variables instead of an array of length n. Additionally,
 # there is no n-sized stack.
 
-
-# p fib_climb_steps(4)
+def climb_stairs_bottom_up(n)
+  return 1 if n <= 1
+  nums = [0, 1]
+  for i in 2..n do
+    p nums
+    nums[i] = nums[i - 1] + nums[i - 2]
+  end
+  nums[n]
+end
+p climb_stairs_bottom_up(10)
