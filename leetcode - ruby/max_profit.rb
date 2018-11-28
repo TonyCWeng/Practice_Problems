@@ -17,6 +17,18 @@ def max_profit(prices)
   profit
 end
 
+def max_profit2(prices)
+  profit = 0
+  previous_price = prices.first
+  prices.each do |current_price|
+    if current_price > previous
+      profit += current_price - previous
+    end
+    previous_price = current_price
+  end
+  profit
+end
+
 p max_profit([7,1,5,3,6,4]) == 7
 p max_profit([1,2,3,4,5]) == 4
 p max_profit([7,6,4,3,1]) == 0

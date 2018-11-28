@@ -18,3 +18,5 @@ def first_bad_version(n)
   end
   current_max
 end
+
+# Time complexity: 
