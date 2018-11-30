@@ -17,3 +17,5 @@ end
 # yield.
 
 p rob([1000, 0, 50, 1001, 3000, 10, 15])
+
+# The same as the maximum subarray sum with no adjacent values.
