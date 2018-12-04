@@ -26,7 +26,6 @@ def dfs_rob(root, hash = {})
   # the node and the value is the maximum amount we can rob from that point
   # in the tree.
   hash[root] = total_val
-  p hash.values
   total_val
 end
 
@@ -42,3 +41,4 @@ b.left = d
 b.right = e
 c.right = f
 p rob(a)
+add = {}
