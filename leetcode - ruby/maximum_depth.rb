@@ -16,3 +16,4 @@ def dfs(node, depth)
   # We return the larger of the two depths
   right_depth >= left_depth ? right_depth : left_depth
 end
+p 7 & 7
