@@ -12,3 +12,15 @@ end
 # can think of [1,2,3,4] = [1] added to subsets of [2,3,4] plus the subsets of [2,3,4]
 
 p subsets([1, 2, 3])
+
+def subsets_iterative(arr)
+  subs = [[]]
+  arr.each do |val|
+    new_subs = subs.map { |sub| sub + [val] }
+    subs.concat(new_subs)
+  end
+  subs
+end
+# Subsets do not care about the ordering, so it is fine for the iterative
+# and recursive solutions to not entirely match.
+p subsets_iterative([1,2,3])

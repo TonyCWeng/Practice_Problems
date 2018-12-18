@@ -8,6 +8,7 @@ end
 
 def sorted_array_to_bst(nums)
   return nil if nums.empty?
+  return TreeNode.new(nums.first) if nums.length == 1
   mid_point = nums.length / 2
   root = TreeNode.new(nums[mid_point])
   root.left = sorted_array_to_bst(nums[0...mid_point])
