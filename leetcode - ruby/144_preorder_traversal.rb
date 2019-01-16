@@ -20,3 +20,20 @@ def traverse(node, visited)
   traverse(root.left, visited)
   traverse(root.right, visited)
 end
+
+# Iterative solution
+
+def preorder_traversal(root)
+  traversal_order = []
+  stack = []
+  stack << root if root
+  until stack.empty?
+    current_node = stack.pop
+    traversal_order << current_node.val
+    # We need to push the right node first because Stacks are LIFO
+    # and the later node is read first.
+    stack << current_node.right if current_node.right
+    stack << current_node.left if current_node.left
+  end
+  traversal_order
+end
