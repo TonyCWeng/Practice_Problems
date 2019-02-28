@@ -13,7 +13,7 @@ def reverse_list(head)
     current = next_node
   end
   # prev's first node is now set to the original linked list's last node.
-  # As such, it's next points to the 2nd last node and so on.
+  # prev.next now points to the 2nd last node and so on.
   prev
 end
 

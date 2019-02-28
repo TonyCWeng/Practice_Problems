@@ -56,5 +56,4 @@ class LinkedList
   def last
     empty? ? nil : @tail.prev
   end
-
 end

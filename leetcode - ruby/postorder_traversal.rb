@@ -18,3 +18,21 @@ def postorder_helper(root, visited)
   postorder_helper(root.right) if root.right
   visited << root.val
 end
+
+# Iterative
+def iterative_postorder_traversal(root)
+  stack = []
+  res = []
+  current = root
+  until current.nil? && stack.nil?
+    if current
+      stack << current.right if current.right
+      stack << current
+      current = current.left
+    else
+      res << current.val
+      current = nil
+    end
+  end
+  res
+end

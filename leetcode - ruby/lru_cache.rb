@@ -19,6 +19,7 @@ class Node
 end
 
 class LRUCache
+  attr_accessor :head, :tail
   def initialize(capacity)
     @capacity = capacity
     @cache = {}
@@ -38,11 +39,13 @@ class LRUCache
       add(node)
       node.value
     else
-      return -1
+      -1
     end
   end
 
   def put(key, value)
+    # Again, if the key already exists, then we need to refresh it by
+    # removing it from cache
     remove(@cache[key]) if @cache[key]
     node = Node.new(key, value)
     add(node)
@@ -66,6 +69,8 @@ class LRUCache
     node.next = next_node
   end
 
+  # We can remove a node from the LRUCache by having its previous node
+  # point to its next node and its next node point to its previous.
   def remove(node)
     prev = node.prev
     next_node = node.next
@@ -74,5 +79,9 @@ class LRUCache
   end
 end
 
-a = LRUCache.new(10)
-puts a.head == a.tail.prev
+a = LRUCache.new(2)
+a.put(1, 1)
+a.put(2, 2)
+p a.get(1)
+a.put(3,3) # 2 is evicted from the cache.
+p a.get(2) # should return -1, as 2
