@@ -8,15 +8,23 @@
 # end
 
 def postorder_traversal(root)
-  visited_nodes = []
-  postorder_helper(root, visited)
-  visited_nodes
+  visit_order = []
+  postorder_helper(root, visit_order)
+  visit_order
 end
 
-def postorder_helper(root, visited)
-  postorder_helper(root.left) if root.left
-  postorder_helper(root.right) if root.right
-  visited << root.val
+# def postorder_helper(root, visited)
+#   postorder_helper(root.left) if root.left
+#   postorder_helper(root.right) if root.right
+#   visited << root.val
+# end
+
+def postorder_helper(root, visit_order)
+  if root
+    postorder_helper(root.left, visit_order)
+    postorder_helper(root.right, visit_order)
+    visit_order << root.val
+  end
 end
 
 # Iterative
