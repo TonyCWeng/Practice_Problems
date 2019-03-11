@@ -36,3 +36,17 @@ def iterative_postorder_traversal(root)
   end
   res
 end
+
+# Another iterative approach
+def iterative_postorder_traversal2(root)
+  return [] if root.nil?
+  stack = [root]
+  order = []
+  until stack.empty?
+    current = stack.pop
+    order << current.val
+    stack << current.left if current.left
+    stack << current.right if current.right
+  end
+  traversal.reverse
+end
