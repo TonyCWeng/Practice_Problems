@@ -7,6 +7,7 @@
 #     end
 # end
 
+# First approach.
 def has_path_sum(root, sum)
   return false unless root
   return root.val == sum unless root.left || root.right
