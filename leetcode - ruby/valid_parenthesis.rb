@@ -16,7 +16,9 @@ def is_valid(s)
   open_brackets.empty?
 end
 
-# p is_valid('{[()]}') == true
-# p is_valid('([)]') == false
-# p is_valid('((') == false
-p is_valid('[()[]{}]')
+# LIFO, as the most recent open bracket is the one we seek to reunite
+# with its pair.
+p is_valid('{[()]}') == true
+p is_valid('([)]') == false
+p is_valid('((') == false
+p is_valid('[()[]{}]') == true
