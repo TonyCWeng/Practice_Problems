@@ -27,12 +27,15 @@ def max_area_helper(height, left, right)
   height * (right - left)
 end
 # In my first attempt, I thought to be clever and try to calculate as few
-# potential maximums. However, all the constant work to identify new left
-# and right maximums proved expensive. And the code itself is a lot more
-# verbose despite remaining constant. Not very good.
+# potential maximums by checking only when the container height increased
+# (as the container width decreased with every iteration).
+# However, all the constant work to identify the next greatest height.
+# Also fairly verbose.
 
 # A shorter, more succinct approach. We end up calculating the area at
 # every go, but there's less work overall.
+# The idea is to start with the widest possible container, working our way
+# to a thinner area at every iteration.
 def max_area(height)
   left = 0
   right = height.length - 1

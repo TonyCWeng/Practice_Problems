@@ -40,3 +40,31 @@ end
 # We then reassign the duplicate character's index to our current index
 # and delete all entries with an index lower than our starting point.
 # Time Complexity should be O(n), but not very performant according to leetcode.
+
+def length_of_longest_substring(s)
+    return s.length if s.length <= 1
+    dictionary = {}
+    start_idx = 0
+    current = 0
+    longest = 0
+    while current < s.length
+        char = s[current]
+        # Our condition to break the current substring is if we've encountered
+        # a duplicate, but since we are not erasing dictionary entries (expensive),
+        # we must use our start_index to invalidate letters that precede our start_index.
+        # As such, we ONLY keep track of when we last saw a letter.
+        if dictionary[char] && dictionary[char] >= start_idx
+            longest = [longest, current - start_idx].max
+            start_idx = dictionary[char] + 1
+        end
+        dictionary[char] = current
+        current += 1
+    end
+    [longest, current - start_idx].max
+end
+
+# Similar approach to the first attempt, only we added a new check.
+# We do not directly direct previous dictionary entries. Instead,
+# we check to see if the duplicate is properly ahead/at our starting index.
+# Otherwise, we know that it is not a duplicate character for our current
+# substring and do not need to break the current substring.
