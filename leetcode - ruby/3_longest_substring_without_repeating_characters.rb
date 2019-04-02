@@ -1,32 +1,32 @@
 def length_of_longest_substring(s)
-    return s.length if s.length <= 1
-    dictionary = {}
-    start = 0
-    current = 0
-    longest = 0
-    while current < s.length
-        if dictionary[s[current]] != nil
-            if (current - start) > longest
-               longest = current - start
-            end
-            #reassign start to the value after the repeat letter.
-            start = dictionary[s[current]] + 1
-            # erase all characters that preceded the start index, as
-            # we have not encountered them in the current substring
-            dictionary[s[current]] = current
-            dictionary.each do |key, val|
-               if val < start
-                   dictionary.delete(key)
-               end
-            end
-        else
-            dictionary[s[current]] = current
+  return s.length if s.length <= 1
+  dictionary = {}
+  start = 0
+  current = 0
+  longest = 0
+  while current < s.length
+    if dictionary[s[current]] != nil
+      if (current - start) > longest
+        longest = current - start
+      end
+      #reassign start to the value after the repeat letter.
+      start = dictionary[s[current]] + 1
+      # erase all characters that preceded the start index, as
+      # we have not encountered them in the current substring
+      dictionary[s[current]] = current
+      dictionary.each do |key, val|
+        if val < start
+          dictionary.delete(key)
         end
-
-        current += 1
+      end
+    else
+      dictionary[s[current]] = current
     end
-    print [dictionary, start, current]
-    longest >= (current - start) ? longest : (current - start)
+
+    current += 1
+  end
+  print [dictionary, start, current]
+  longest >= (current - start) ? longest : (current - start)
 end
 
 # We keep track of all letters we come across in a dictionary, with the key
@@ -42,25 +42,25 @@ end
 # Time Complexity should be O(n), but not very performant according to leetcode.
 
 def length_of_longest_substring(s)
-    return s.length if s.length <= 1
-    dictionary = {}
-    start_idx = 0
-    current = 0
-    longest = 0
-    while current < s.length
-        char = s[current]
-        # Our condition to break the current substring is if we've encountered
-        # a duplicate, but since we are not erasing dictionary entries (expensive),
-        # we must use our start_index to invalidate letters that precede our start_index.
-        # As such, we ONLY keep track of when we last saw a letter.
-        if dictionary[char] && dictionary[char] >= start_idx
-            longest = [longest, current - start_idx].max
-            start_idx = dictionary[char] + 1
-        end
-        dictionary[char] = current
-        current += 1
+  return s.length if s.length <= 1
+  dictionary = {}
+  start_idx = 0
+  current = 0
+  longest = 0
+  while current < s.length
+    char = s[current]
+    # Our condition to break the current substring is if we've encountered
+    # a duplicate, but since we are not erasing dictionary entries (expensive),
+    # we must use our start_index to invalidate letters that precede our start_index.
+    # As such, we ONLY keep track of when we last saw a letter.
+    if dictionary[char] && dictionary[char] >= start_idx
+      longest = [longest, current - start_idx].max
+      start_idx = dictionary[char] + 1
     end
-    [longest, current - start_idx].max
+    dictionary[char] = current
+    current += 1
+  end
+  [longest, current - start_idx].max
 end
 
 # Similar approach to the first attempt, only we added a new check.

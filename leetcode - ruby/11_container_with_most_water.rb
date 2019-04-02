@@ -21,7 +21,6 @@ def max_area(height)
   end
   most_water
 end
-
 def max_area_helper(height, left, right)
   height = [height[left], height[right]].min
   height * (right - left)
