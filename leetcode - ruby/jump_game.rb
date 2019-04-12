@@ -13,7 +13,7 @@ def can_jump?(nums)
   # we do not want to continue the while loop if we are unable to proceed
   # past a certain part of the array that is not the tail end.
   while idx < length && idx <= maximum_idx
-    return true if idx == length - 1
+    return true if idx == length - 1 || maximum_idx >= length - 1
     potential_max_idx = idx + nums[idx]
     # print [idx, potential_max_idx]
     maximum_idx = potential_max_idx if maximum_idx < potential_max_idx
@@ -25,5 +25,5 @@ def can_jump?(nums)
 end
 
 # p can_jump?([1, 1, 1, 0, 4])
-p can_jump?([2, 0, 1, 1, 0, 4])
-p can_jump?([1, 3, 0, 4, 1])
+p can_jump?([2, 0, 1, 1, 0, 4]) == false
+p can_jump?([1, 3, 0, 4, 1]) == true

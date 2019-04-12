@@ -43,6 +43,6 @@ def can_jump?(arr, current_idx, destination_idx)
   current_idx + arr[current_idx] >= destination_idx
 end
 
-# p minimum_jumps([2, 3, 1, 1, 4])
+p minimum_jumps([2, 3, 1, 1, 4])
 # p minimum_jumps([2, 3, 4, 1, 1, 1])
 # p minimum_jumps([2, 3, 1, 1, 2, 4, 2, 0, 1, 1])
