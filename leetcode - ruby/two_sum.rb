@@ -1,5 +1,3 @@
-
-
 def two_sum(nums, target)
   nums.each_with_index do |num1, idx1|
     remainder = target - num1
