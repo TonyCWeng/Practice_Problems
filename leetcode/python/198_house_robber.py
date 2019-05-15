@@ -1,6 +1,7 @@
 class Solution:
     def rob(self, numbers):
         even, odd = 0, 0
+        # enumerate returns a tuple consisting of the index and the item (index, item)
         for idx, x in enumerate(numbers):
             if idx % 2 == 0:
                 even = max(odd, even + x)
@@ -17,7 +18,7 @@ class Solution2:
     def rob(self, numbers):
         if not numbers:
             return 0
-        if len(numbers)  < 2:
+        if len(numbers) < 2:
             return max(numbers)
         prev, current = 0, 0
         for x in numbers:
