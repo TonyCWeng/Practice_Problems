@@ -9,7 +9,7 @@ class Solution:
             i += 1
         return fibs[N]
 
-class Solution:
+class Solution2:
     def fib(self, n):
         if N == 0 or N == 1:
             return N
