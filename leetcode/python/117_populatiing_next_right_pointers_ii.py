@@ -28,3 +28,5 @@ class Solution:
 # layer's children nodes.next and also storing children (left before right) to be
 # the next layer. In each layer, a node will point to the next node in this list
 # until we reach the end, where the rightmost node points to None.
+# Time Complexity: O(n), where n = number of nodes in tree.
+# Space Complexity: O(n), as the bottom most layer can be at worst n/2 nodes.
