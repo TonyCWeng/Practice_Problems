@@ -1,6 +1,4 @@
 import random
-
-
 class RandomizedSet:
 
     def __init__(self):
@@ -21,21 +19,22 @@ class RandomizedSet:
         # upon built-in methods.
         if val in self.dict:
             last = self.nums[-1]
-	index = self.dict[val]
-        # We replace val with the last value of the list, then
-        # we pop the last value because it is now a duplicate entry
-        self.nums[index] = last
-        self.nums.pop()
-        # For the dictionary entry, we just need to point dict[last]
-        # to its new list index coordinate and directly delete self.dict[val]
-        self.dict[last] = index
-        del self.dict[val]
-        return True
+            index = self.dict[val]
+            # We replace val with the last value of the list, then
+            # we pop the last value because it is now a duplicate entry
+            self.nums[index] = last
+            self.nums.pop()
+            # For the dictionary entry, we just need to point dict[last]
+            # to its new list index coordinate and directly delete self.dict[val]
+            self.dict[last] = index
+            del self.dict[val]
+            return True
         return False
 
     def getRandom(self) -> int:
+        # Need to perform random.choice on a list for it to be done in
+        # constant time.
         return random.choice(self.nums)
-
 
 # Your RandomizedSet object will be instantiated and called as such:
 # obj = RandomizedSet()
