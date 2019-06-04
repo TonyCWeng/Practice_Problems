@@ -20,3 +20,6 @@ class Solution:
 # As such, we go down layer by layer, starting at the leftmost child.
 # As left.next points to the right child, we are able to access the entire layer
 # by starting at the leftmost child.
+# Current.left.next will always point to a tree node.
+# If current.next == None, then we know that current.right.next == None because
+# we are at the rightmost node of the current layer.
