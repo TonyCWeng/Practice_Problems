@@ -12,7 +12,17 @@ def romanToInt(s: str) -> int:
         prev = current
     return total_value
 
-
-
 print(romanToInt('MMMCMXCIX')) == 3999
 print(romanToInt('MCMXCIV')) == 1994
+
+def romanToInt2(s: str) -> int:
+    SYMBOLS = {'M': 1000, 'D': 500, 'C': 100,
+               'L': 50, 'X': 10, 'V': 5, 'I': 1}
+    total_value = 0
+    for symbol in s[::-1]:
+        current = SYMBOLS[symbol]
+        if current < total_value:
+            total_value -= current
+        else:
+            total_value += current
+    return total_value
