@@ -56,5 +56,5 @@ def iterative_postorder_traversal2(root)
     stack << current.left if current.left
     stack << current.right if current.right
   end
-  traversal.reverse
+  order.reverse
 end
