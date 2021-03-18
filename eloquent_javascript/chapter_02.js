@@ -35,6 +35,7 @@ function grid_maker(size = 8) {
 			grid += odd;
 		}
 	}
+	console.log(i)
 	return grid
 }
 
@@ -63,4 +64,23 @@ function odd_row(size = 8) {
 	grid += "\n";
 	return row
 } 
-console.log(grid_maker(8).length);
+console.log(grid_maker());
+
+// Book solution
+let size = 8;
+let board = "";
+// we have a nested for loop, the outer one is responsible for creating
+// the required number of rows whereas the inner loop creates the row itself.
+for (let y = 0; y < size; y++) {
+	for (let x = 0; x < size; x++) {
+		if ((x + y) % 2 == 0) {
+			board += " ";
+		} else {
+			board += "#";
+		}
+	}
+	//add newline at the end of the completed row.
+	board += "\n"
+}
+
+// console.log(board);
