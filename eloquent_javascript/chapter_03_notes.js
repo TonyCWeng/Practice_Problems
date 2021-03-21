@@ -1,6 +1,16 @@
 /* 
 Variable: storage location paired with an appropriate label that contains
 a value. Can also point to a function.
+Some rules for variable names:
+- The first character must be a letter or underscore, it cannot be a number.
+- Variable names are case sensitive. Interest_rate != interest_rate.
+- There is no limit to variable name length. 
+- There are certain keywords and reserved words that cannot be used as a name.
+
+Binding: synonym for variable. In javascript, there are three distinct keywords
+that declare bindings/variables: var, let, and const (function being different).
+- var declarations are either globally or function scoped, whereas let and const
+block scoped ({}). 
 
 Statement: a line of code composed of a mix of: values, operators, expressions,
 keywords, and comments. Semi-colons are added onto the end of each executable
@@ -11,12 +21,6 @@ a = 3; b = 5; c = 10
 
 /*
 Block: delimited by a pair of curly braces {}. Used to group 0+ statements.
-
-Binding: synonym for variable. In javascript, there are three distinct keywords
-that declare bindings/variables: var, let, and const (function being different).
-- var declarations are either globally or function scoped, whereas let and const
-block scoped ({}). There are certain keywords that cannot be used as a name for
-a binding. 
 
 Environment: the collection of bindings and their values that exist at a given
 time.
