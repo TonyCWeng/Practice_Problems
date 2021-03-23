@@ -29,21 +29,57 @@ console.log(object[1]); // "one" 1 is coerced into a string
 Methods: properties that are functions.
 
 Objects: list of property-value pairs (Ex. let date = {day: "Monday", month: "March"})
+- objects have no order, so there's no guarantee that they are going to be
+iterated through in the same order they were created. As such, sorting is not supported.
 - Most things in javascript are objects.
 - Exceptions: null, undefined, strings, numbers, boolean, and symbols. These six
-are referred to as primitive values or primitive types.
+are referred to as primitive values or primitive types. Primitive values are all
+immutable. 
+- Can retrieve all properties of an object into an array with the 
+Object.keys function. 
 
 The Binary operator in can be used to tell whether or not an object has a given
-property. It can also be used in a for loop to iterate through an object
+property. It can also be used in a for loop to iterate through an object.
 
 */
-let anObject = {left: 1, right: 2}
+let anObject = {left: 1, right: 2};
+//Object.assign copies all properties from one object into another.
+Object.assign(anObject, {special: 3, 4:4}); // anObject = { '4': 4, right: 2, special: 3, 4:4 }
 console.log("left" in anObject); // true
-console.log("middle" in anObject); //false
+console.log("middle" in anObject); // false
+console.log(Object.keys(anObject)); // [4, 'left', 'right', 'special']
+console.log(Object.values(anObject)); // [4, 1, 2, 3]
+// delete will remove the named property from the object, reducing the number of
+// properties in anObject from 4 to 3.
+// attempting to access anObject.left would then return undefined.
+delete anObject.left;
+console.log(anObject); //{ '4': 4, right: 2, special: 3 }
+//for both keys and values, 4 ends up getting iterated through first.
+
+
 for (const property in anObject) {
 	console.log(property);
 }
 
 /*
+Mutability: In Javascript, strings, numbers, and booleans are all immutable.
+Which is to say that when we combine strings and derive new values, we are creating
+new strings and not mutating any pre-existing string into something else in the
+system's memory. 
+- In javascript, only objects and arrays are mutable. 
+- Primitive values are not mutable (null, undefined, strings, numbers, boolean, and symbols)
+As such, their methods do not modify the String object in memory, but instead
+create and return a new String object.
+- Strings are not objects, but when used in an expression like str.indexOf(2),
+a new anonymous String object derived from it and is assigned the property indexOf.
+Javascript will automatically convert primitives to objects, enabling us to call
+String object methods on them.
+*/
+var myVar = "Hello World";
+myVar = "Hello World!!!!" //a new String reference is being assigned to myVar
+myVar = myVar.toUpperCase(); // toUpperCase() is creating a new string based on the original referenced string
+
+/*
+
 
 */
