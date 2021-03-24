@@ -66,7 +66,6 @@ Mutability: In Javascript, strings, numbers, and booleans are all immutable.
 Which is to say that when we combine strings and derive new values, we are creating
 new strings and not mutating any pre-existing string into something else in the
 system's memory. 
-- In javascript, only objects and arrays are mutable. 
 - Primitive values are not mutable (null, undefined, strings, numbers, boolean, and symbols)
 As such, their methods do not modify the String object in memory, but instead
 create and return a new String object.
@@ -74,12 +73,28 @@ create and return a new String object.
 a new anonymous String object derived from it and is assigned the property indexOf.
 Javascript will automatically convert primitives to objects, enabling us to call
 String object methods on them.
+
+
+- In javascript, only objects and arrays are mutable. That is to say, we can change
+their properties and thus there is a difference between having two bindings point
+to the same object and having two objects containing the same properties.
 */
 var myVar = "Hello World";
 myVar = "Hello World!!!!" //a new String reference is being assigned to myVar
 myVar = myVar.toUpperCase(); // toUpperCase() is creating a new string based on the original referenced string
 
+let ob1 = {value: 10};
+let ob2 = ob1;
+let ob3 = {value: 10};
+console.log(ob1 == ob2); // true
+console.log(ob1 == ob3); // false
+ob1.value = 15;
+console.log(ob2.value); //It changes to 15 because ob2 points to ob1
+console.log(ob3.value); //It remains at 10 because ob1 and ob3 are two different objects
 /*
-
-
+- If we declare an object with const, then the const binding cannot be changed,
+but are still able to change the contents of the object it is pointed towards.
 */
+const score = {visitors: 0, home: 0};
+score.visitors = 1; // this would change the visitor property value to 1.
+score = {visitors: 1, home: 1}; // Throws the error TypeError: Assignment to constant variable.
