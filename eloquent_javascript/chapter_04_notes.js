@@ -3,7 +3,10 @@ Chapter 4: Objects and Arrays
 
 Arrays: data type used for storing sequences of values.
 - Arrays are zero-indexed, meaning that the first value of an array is accessed
-like so. Ex. const Arr = [1,2,3,4,5]; Arr[0] == 1.
+like so.
+Ex. const Arr = [1,2,3,4,5]; Arr[0] == 1.
+- Due to zero indexing, he last entry of an array is Arr.length - 1
+Ex. Arr[Arr.length - 1] 
 
 Properties: values associated with a Javascript Object. All Javascript values
 have properties except for null and undefined.
@@ -113,6 +116,7 @@ for (let i = 0; i < arr.length; i++) {
 for (let entry of arr) {
 	console.log(entry ** 2);
 }
+
 /* Arrays
 -As with objects, two separate arrays that contain the exact same contents are ultimately
 not identical with one another (==). As such, changing the contents of one such array
@@ -126,6 +130,12 @@ Array methods
 and ending indices, inclusive of the starting point and excluding the end index entry.
 - slice(start); when only given the starting index, the slice method will return an array
 including everything from the start index.
+- a.concat(b); strings arrays a and b together, with a's entries predictably in
+front of b's.
+- a.indexOf(x, start = 0); will search for entry x, starting with index 0. if 
+given a secondary argument, will start searching from said point.
+- a.lastIndexOf(x, start = ); will search for entry x, starting from the end of
+the 
 */
 console.log(arr.slice(2)); //returns [3,4,5]
 console.log(arr.slice(2, 5)); //returns [3,4,5]
