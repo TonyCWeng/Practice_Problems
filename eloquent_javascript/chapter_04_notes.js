@@ -72,22 +72,42 @@ system's memory.
 - Primitive values are not mutable (null, undefined, strings, numbers, boolean, and symbols)
 As such, their methods do not modify the String object in memory, but instead
 create and return a new String object.
-- Strings are not objects, but when used in an expression like str.indexOf(2),
+
+Strings are not objects, but when used in an expression like str.indexOf(2),
 a new anonymous String object derived from it and is assigned the property indexOf.
 Javascript will automatically convert primitives to objects, enabling us to call
 String object methods on them.
+- Strings have built-in properties such as slice() and indexOf(str), but cannot
+have additional properties added to them (there's no error when trying, but 
+they won't actually be stored).
+
 */
 var myVar = "Hello World";
 myVar = "Hello World!!!!" //a new String reference is being assigned to myVar
-myVar = myVar.toUpperCase(); // toUpperCase() is creating a new string based on the original referenced string
+capitalizedVar = myVar.toUpperCase(); // toUpperCase() is creating a new string based on the original referenced string
+console.log(capitalizedVar.indexOf("z")); //returns the first index that has the str arg as a value. 
+// indexOf can accept more than 1 char, enabling us to search for substrings and
+// returns -1 if it cannot be found.
+capitalizedVar.slice(3, 7); //returns 'LO W',
 
+// string.length returns the length of a string
+console.log("the length of the word adversity is " + String("adversity".length));
+
+// trim removes the whitespace from the start and end of a string
+const untrimmed = "  trim please    ";
+trimmed = untrimmed.trim(); 
+console.log(trimmed); // only "trim please" remains
+
+//padStart takes the desired length and padding character as arguments and formats the string it is called on.
+const pad = "9";
+pad.padStart(3, "0"); // returns "009"
+pad.padStart(4, "X"); // returns "XXX9"
 /*
 - In javascript, only objects and arrays are mutable. 
 - Two different objects with identical contents are not considered to be equal to
 one other.That is to say, we can change their properties and thus there is a 
 difference between having two bindings point to the same object and having 
 two objects containing the same properties.
-Ex. 
 */
 
 let ob1 = {value: 10};
@@ -137,6 +157,6 @@ given a secondary argument, will start searching from said point.
 - a.lastIndexOf(x, start = ); will search for entry x, starting from the end of
 the 
 */
-console.log(arr.slice(2)); //returns [3,4,5]
-console.log(arr.slice(2, 5)); //returns [3,4,5]
-console.log(arr.slice(2) == arr.slice(2)); //returns false
+arr.slice(2); //returns [3,4,5]
+arr.slice(2, 5); //returns [3,4,5]
+arr.slice(2) == arr.slice(2); //returns false
