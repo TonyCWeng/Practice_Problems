@@ -1,6 +1,8 @@
 /*
 Chapter 4: Objects and Arrays
 
+Misc. reminder: cmd + d when highlighting a word to highlight other instances as well.
+
 Arrays: data type used for storing sequences of values.
 - Arrays are zero-indexed, meaning that the first value of an array is accessed
 like so.
@@ -160,3 +162,29 @@ the
 arr.slice(2); //returns [3,4,5]
 arr.slice(2, 5); //returns [3,4,5]
 arr.slice(2) == arr.slice(2); //returns false
+
+/* Rest Parameters
+- enables a function to accept any number of arguments 
+- does not have to contain all the arguments of a function.
+- denoted by an ellipsis before the argument. (Ex. function max(...numbers))
+- when the function is called, the rest parameter is bound to an array containing
+the given arguments. 
+
+Spread Syntax
+- allows an iterable (such as an array) to pass its elements as separate arguments
+- in the example below, we use it to "spread" the arguments of an array to be used
+as the rest parameters of our max function.
+- can be thought of as the opposite of rest parameters.
+*/
+const max = (...numbers) => {
+	let result = -Infinity;
+	for (let num of numbers) {
+		if (num > result) result = num;
+	}
+	return result
+}
+numberArray = [-10,20,-5,0, 11, -40];
+console.log(max(9, -17, 14, 10, -88)); // returns 14
+console.log(max(...numberArray)); // returns 20
+// we can also include other arguments alongside the spread array.
+console.log(max(18, ...numberArray, 23)); //now returns 23
