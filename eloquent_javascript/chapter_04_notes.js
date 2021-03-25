@@ -73,15 +73,19 @@ create and return a new String object.
 a new anonymous String object derived from it and is assigned the property indexOf.
 Javascript will automatically convert primitives to objects, enabling us to call
 String object methods on them.
-
-
-- In javascript, only objects and arrays are mutable. That is to say, we can change
-their properties and thus there is a difference between having two bindings point
-to the same object and having two objects containing the same properties.
 */
 var myVar = "Hello World";
 myVar = "Hello World!!!!" //a new String reference is being assigned to myVar
 myVar = myVar.toUpperCase(); // toUpperCase() is creating a new string based on the original referenced string
+
+/*
+- In javascript, only objects and arrays are mutable. 
+- Two different objects with identical contents are not considered to be equal to
+one other.That is to say, we can change their properties and thus there is a 
+difference between having two bindings point to the same object and having 
+two objects containing the same properties.
+Ex. 
+*/
 
 let ob1 = {value: 10};
 let ob2 = ob1;
@@ -97,4 +101,32 @@ but are still able to change the contents of the object it is pointed towards.
 */
 const score = {visitors: 0, home: 0};
 score.visitors = 1; // this would change the visitor property value to 1.
-score = {visitors: 1, home: 1}; // Throws the error TypeError: Assignment to constant variable.
+//score = {visitors: 1, home: 1}; // Throws the error TypeError: Assignment to constant variable.
+
+// Looping through the contents of an array
+let arr = [1,2,3,4,5];
+for (let i = 0; i < arr.length; i++) {
+	let entry = arr[i];
+	console.log(entry ** 2);
+}
+// Modern, succinct version of above loop
+for (let entry of arr) {
+	console.log(entry ** 2);
+}
+/* Arrays
+-As with objects, two separate arrays that contain the exact same contents are ultimately
+not identical with one another (==). As such, changing the contents of one such array
+would not affect the other. The contents of an array do not determine equality.
+Array methods 
+-push() will tack an element to the end of array
+-pop() will remove the last element of an array
+-shift() will remove the first element of an array
+-unshift will add an element to the start of the array.
+- slice(start, end) will return an array that has the elements between the starting
+and ending indices, inclusive of the starting point and excluding the end index entry.
+- slice(start); when only given the starting index, the slice method will return an array
+including everything from the start index.
+*/
+console.log(arr.slice(2)); //returns [3,4,5]
+console.log(arr.slice(2, 5)); //returns [3,4,5]
+console.log(arr.slice(2) == arr.slice(2)); //returns false
