@@ -183,8 +183,12 @@ const max = (...numbers) => {
 	}
 	return result
 }
-numberArray = [-10,20,-5,0, 11, -40];
+numberArray = [-10,20,-5];
 console.log(max(9, -17, 14, 10, -88)); // returns 14
 console.log(max(...numberArray)); // returns 20
+
 // we can also include other arguments alongside the spread array.
 console.log(max(18, ...numberArray, 23)); //now returns 23
+
+// we can spread the contents of one array into another
+console.log([14, ...numberArray, 66, 32]); // returns[ 14, -10, 20, -5, 66, 32 ]
