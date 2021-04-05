@@ -66,11 +66,6 @@ function reverseArrayInPlace(arr) {
 }
 // reverseArrayInPlace([1,2,3,4,5]);
 
-// Write a function arrayToList that converts an array into a list
-function arrayToList(arr) {
-
-};
-
 // Write a function listToArray that gathers all the values of the list
 function listToArray(list) {
 	let cur = list, arr = [];
@@ -108,4 +103,41 @@ function arrayToList(arr) {
 	return list;
 };
 
-console.log(arrayToList([1,2,3]));
+// console.log(arrayToList([1,2,3]));
+
+// create a function that adds an element to the front of the list.
+function prepend(element, list) {
+	return {value: element, rest: list};
+};
+
+// console.log(prepend(4, arrayToList([1,2])));
+
+// create a function, nth, which takes a list and an index position and
+// returns the element at the given position in the list
+function nth(list, index) {
+	let cur = list;
+	let pos = 0;
+	// we continue to iterate through the list unless pos > index or if cur is null
+	while (pos <= index && cur) {
+		if (pos == index) return cur.value;
+		//update our current index position and set cur to the rest of the list
+		pos++;
+		cur = cur.rest;
+	}
+	return undefined;
+}
+// console.log(nth(arrayToList([1,2,3]), 4));
+
+// in the recursive version, we need to proceed through the list in each iteration
+// and reduce the index in turn. As such, we need to return if the list is no more
+// or if there is no nth element (as in the size of the list is less than nth)
+function recursiveNth(list, index) {
+	// if the list is long enough to contain the nth position, we return the corresponding value
+	if (list && index == 0) return list.value;
+	// 1) if we've reached the end of the list, return undefined.
+	// 2) if we are given a negative index value, return undefined. 
+	if (!list || index < 0) return undefined;
+	return recursiveNth(list.rest, index - 1);
+}
+
+console.log(recursiveNth(arrayToList([1,2,3]), 3));

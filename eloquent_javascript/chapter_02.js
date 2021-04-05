@@ -9,6 +9,9 @@ function triangleLoop() {
 	}
 
 }
+// Book Solution
+// for (let line = "#"; line.length < 8, line += "#")
+// 	console.log(line);
 
 //FizzBuzz
 // for (let i = 1; i < 101; i++) {
@@ -19,9 +22,19 @@ function triangleLoop() {
 // 	} else if (i % 5 == 0) {
 // 		console.log("Buzz")
 // 	} else {
-// 		console.log("")
+// 		console.log(i)
 // 	}
 // }
+
+// Book Solution
+// for (let n = 1; n <= 100; n++) {
+// 	let output = "";
+// 	if (n % 3 == 0) output += "Fizz";
+// 	if (n % 5 == 0) output =+ "Buzz";
+// 	// If output is an empty string, then it is falsy and we log the number itself.
+// 	console.log(output || n); 
+// }
+
 
 //Chess Board
 function grid_maker(size = 8) {
