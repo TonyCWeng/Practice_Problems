@@ -68,7 +68,7 @@ function reverseArrayInPlace(arr) {
 
 // Write a function arrayToList that converts an array into a list
 function arrayToList(arr) {
-	
+
 };
 
 // Write a function listToArray that gathers all the values of the list
@@ -83,4 +83,29 @@ function listToArray(list) {
 	return arr
 };
 
-c
+
+// Write a function arrayToList that transforms an array into an equivalent list.
+function arrayToList(arr) {
+	// we create a list variable that we can return to in the end and a pointer
+	// variable that will enable us to create each object layer.
+	// at the very end, we expect rest to equal null, so that is when the loop
+	// behaves differently and we do not set cur.rest to a fresh object layer.
+	let list = {value: null, rest: null};
+	// cur initially points to the start of our list, which is a fresh list object
+	// that contains the properties of value and rest. 
+	// value is a number and rest is either a nested object or points to null.
+	let cur = list;
+	for (let i = 0; i < arr.length; i++) {
+		cur.value = arr[i];
+		if (i == arr.length - 1) {
+			cur.rest = null;
+		} else {
+			// cur = cur.rest is our way of proceeding to the next position of the list
+			cur.rest = {value: null, rest: null};
+			cur = cur.rest
+		}
+	}
+	return list;
+};
+
+console.log(arrayToList([1,2,3]));
