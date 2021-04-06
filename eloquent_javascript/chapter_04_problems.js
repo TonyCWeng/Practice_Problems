@@ -141,3 +141,29 @@ function recursiveNth(list, index) {
 }
 
 console.log(recursiveNth(arrayToList([1,2,3]), 3));
+
+// Write a function that compares whether or not the properties and values of two objects 
+// are equal.
+
+function deepEqual(obj1, obj2) {
+	// while we will be given either null or objects as inputs, this statement will be
+	// used to handle recursive calls that will determine whether or not the non-object values are equal.
+	if (obj1 === obj2) return true;
+	// early return if we cannot make comparisons between obj1 and obj2.
+	// null is considered an object so we must also handle that exception.
+	if (!obj1 || !obj2 || typeof obj1 != 'object' || typeof obj2 != 'object') return false;
+
+	//Object.keys(obj) returns an array containing all keys of an object.
+	let keys1 = Object.keys(obj1), keys2 = Object.keys(obj2);
+
+	for (let key of keys1) {
+		// we return false if the key names do not match or if their values do not match.
+		// The values of properties may themselves be objects, as such we resort
+		// to recursion.
+		if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+			return false;
+		}
+	}
+	// if everything checks out, return true.
+	return true;
+}
