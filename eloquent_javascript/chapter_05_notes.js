@@ -12,8 +12,22 @@ Higher Order Functions: does at least one of the following:
 */
 //Nested function example. five is a function that returns a function that,
 //when called, will return 5.
+
 const five = function() {
 	return 5;
 };
 console.log(five) // [Function: five] 
 console.log(five()) // 5
+
+// we can nest further
+
+const nestedFive = () => {
+	return () => {
+		return 5;
+	}
+};
+
+console.log(nestedFive); // [Function: nestedFive]
+console.log(nestedFive()); // [Function] An anonymous function
+console.log(nestedFive()()); // 5
+
