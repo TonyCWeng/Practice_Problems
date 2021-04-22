@@ -25,7 +25,37 @@ const loop = function(num, test, update, body) {
 		num = update(num)
 	}
 }
-loop(3, n => n > 0, n => n - 1, console.log);
+// loop(3, n => n > 0, n => n - 1, console.log);
 // → 3
 // → 2
 // → 1
+
+/*
+Everything
+Analogous to the some method, arrays also have an every method. This one returns 
+true when the given function returns true for every element in the array. In a way, 
+some is a version of the || operator that acts on arrays, and every is like the && operator.
+*/
+
+// function every(array, test) {
+//   for (const element of array) {
+// 	  if (!test(element)) return false;
+//   }
+//   return true;
+// }
+
+function every(arr, test) {
+	//some() will return true if any element passes the test. We need to use it to
+	//find a false and then return false if that occurs. As such, we require two
+	// bang operators. One to use some to test for falsy and another to return the
+	// opposite as we ideally have everything "fail" the not!test and then return
+	// that everything holds true.
+	return !arr.some(element => !test(element));
+}
+
+console.log(every([1, 3, 5], n => n < 10));
+// → true
+console.log(every([2, 4, 16], n => n < 10));
+// → false
+console.log(every([], n => n < 10));
+// → true
