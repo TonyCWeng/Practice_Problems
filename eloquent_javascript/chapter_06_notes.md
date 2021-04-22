@@ -19,4 +19,12 @@ to the object that it was called on.
 - arrow functions do not bind their own this, but can see the this binding of the scope around them.
 
 Prototype: All javascript objects inherit properties and functions from a prototype.
-- For arrays, they would inherit from an array.prototype, but also from Object.prototype.
+- Prototypes share a tree-like relationship, with Object.prototype at the very root.
+- Object.prototype provides a few methods that appear in all javascript objects, 
+one such method being toString, which converts an object to a string. That said, the
+method may actually be overrode by another prototype's method that the object is inheriting from.
+- As an example, arrays would inherit from an array.prototype, but also from Object.prototype.
+- The purpose of the array.prototype is to provide further functionality, but also
+to override the implementation of certain functions. For example, the toString method
+used by array instances is actually from the array.prototype, as arrays cannot be 
+converted to strings in the same manner that primitives can.
