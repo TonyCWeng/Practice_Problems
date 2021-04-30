@@ -46,6 +46,9 @@ Ex. new Human("15", "male") will create a human instance with the human prototyp
 not properties. As such, properties can only be added by directly manipulating the
 prototype only after declaring the class.
 
+Instance: an object that contains all the properties and methods of a given class
+that also contains unique, relevant property values.
+
 Overriding Derived Properties
 - whenever we add a property to an object, the property is added to the object itself.
 If there was already a property of the same name within the object's prototype,
@@ -78,7 +81,38 @@ that could respond to.
 We expect the start/stop, power, audio up, audio down buttons to perform the same
 across televisions, computers, music players, etc.
 - when an object can pass multiple "is a" or "type of" tests
-- when a piece of code can accept different types of values or arguments
-Ex. toString method can be used on a host of different objects and primitives.
+- when a function can accept different types of values or arguments, such as in function
+overriding, and returns varying results. In other languages, there also exists function
+overloading, which is when there are 2+ functions of the same name that performs
+differently based on the arguments provided (such as the volume function for
+multiple types of geometric solids).
+*Ex.2 toString method can be used on a host of different objects and primitives.
 - for/of loops are another type of polymorphism as they can be used on various
 different data structures (arrays, strings, objects)
+
+Property Getters and Setters
+- Accessor properties are functions that execute on getting/setting values, but
+appear to be regular properties in the face of external code
+- Denoted by the keywords of get and set before the property name
+Ex. 
+const obj = {
+	get propName() {
+		// getter, executed via obj.propName
+		// We call it as we would call a property and do not use parenthesis.
+	},
+	set propName(value) {
+		// setter, executed via obj.propName = value
+		// Note: we cannot call the setter by obj.propName(value)
+	}
+}
+
+Inheritance: Using the keyword extends, javascript classes can inherit methods
+from a parent/superclass.
+- A class that extends from a super/parent class is referred to as a child/subclass.
+- By using the keyword super inside of our class's constructor, we call upon the 
+superclass/parent's constructor and gain access to the parent class's properties.
+- We can utilize the super and call the parent class's methods from it as well
+Ex. super.set(x, y)
+- Allows us to create new classes based off old classes and their prototype.
+- Reuses code, but at the price of tangling up more code together.
+- Encapsulation and Polymorphism can be thought to assist in the separation of code 
