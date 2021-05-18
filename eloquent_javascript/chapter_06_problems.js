@@ -64,8 +64,11 @@ and creates a group that contains all the values produced by iterating over it.
 */
 
 class Group {
-	constructor(arr = []) {
-		this.values = arr;
+	// For the constructor, we cannot just blindly accept an array to build off from
+	// as the array may have duplicate values present. As such, in the static from
+	// method, we iterate through a given array and add its contents one by one.
+	constructor() {
+		this.values = []];
 	}
 
 	has(value) {
@@ -73,20 +76,28 @@ class Group {
 	}
 
 	add(value) {
-		if (!this.values.includes(value)) {
+		if (!this.has(value)) {
 			this.values.push(value);
 		}
 	}
 
 	delete(value) {
 		let idx = this.values.indexOf(value)
-		if (this.values.indexOf(value) !== 1) {
+		//indexOf will return -1 if it cannot find the value in the array.
+		if (this.values.indexOf(value) !== -1) {
 			this.values.splice(idx, 1)
 		}
 	}
 
 	static from(array) {
-		return new Group(array);
+		// for declaring class instances without arguments, the parentheses are optional.
+		// creating a group from an array isn't too complicated. we merely iterate
+		// through the array and process each value one by one with the add() method.
+		let newGroup = new Group;
+		for (let value of collection) {
+			newGroup.add(value);
+		}
+		return newGroup;
 	}
 }
 

@@ -116,3 +116,12 @@ Ex. super.set(x, y)
 - Allows us to create new classes based off old classes and their prototype.
 - Reuses code, but at the price of tangling up more code together.
 - Encapsulation and Polymorphism can be thought to assist in the separation of code 
+
+Misc.
+-Math.floor returns a whole number, whereas Math.random returns a float between
+0 and 1, inclusive of 0, but excludes 1.
+console.log(Math.random());
+
+// returns a value between 0 to array.length - 1
+let array = [4,1,2,5];
+console.log(Math.floor(Math.random() * array.length));
