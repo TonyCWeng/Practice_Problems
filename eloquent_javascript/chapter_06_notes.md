@@ -125,3 +125,39 @@ console.log(Math.random());
 // returns a value between 0 to array.length - 1
 let array = [4,1,2,5];
 console.log(Math.floor(Math.random() * array.length));
+
+- If we did not have classes, we would have to resort to something like this
+to create class instances. The issue with this method is that every single
+instance created would result in creating and allocating a new function
+copy of increment() with each copy. The data (name/score) is unique and
+so it makes sense for each instance to result in creating data, but the same function
+would be created over and over again.
+For class instances, they do not possess the class function, but the program
+will know where to find the class functions via the prototype chain.
+
+//
+function userCreator(name, score) {
+	const newUser = {};
+	newUser.name = name;
+	newUser.score = score;
+	newUser.increment = function() {
+		newUser.score++;
+	};
+	return newUser;
+}
+
+
+
+// Object.create() can take in a prototype argument, subsequently creating non-null
+// objects.
+function userCreator(name, score) {
+	const newUser = Object.create(functionStore);
+	newUser.name = name;
+	newUser.score = score;
+	return newUser;
+};
+
+const functionStore = {
+	increment: function() {this.score++};
+	login: function() {console.log("You're logged in.")};
+};
