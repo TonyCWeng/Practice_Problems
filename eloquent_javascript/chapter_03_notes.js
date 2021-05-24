@@ -7,6 +7,22 @@ Some rules for variable names:
 - There is no limit to variable name length. 
 - There are certain keywords and reserved words that cannot be used as a name.
 
+Operand: sometimes called arguments, they are what operators are applied to.
+Unary: an operator that takes in a single operand
+- Example such as negation (unary minus operator) and unary plus (both 
+of which would attempt to convert their operand into a number). Unary plus is
+shorthand Number(...).
+- !! Double bang isn't a genuine operator, rather, it is literally two bang
+operators chained one after another. The first bang will convert the operand to 
+the negative of its Boolean value and the second will correct the negation. 
+The end result is that it will generate the Boolean value of the operand. 
+*/
+/*
+- x++, postfix increment operator and x--, postfix decrement operator
+
+Binary: operator that takes in two operands. 
+- Example being Binary math operations (plus, minus, divided by, modulo, multiply)
+
 Binding: synonym for variable. In javascript, there are three distinct keywords
 that declare bindings/variables: var, let, and const (function being different).
 - var declarations are either globally or function scoped, whereas let and const
