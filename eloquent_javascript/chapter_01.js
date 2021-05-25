@@ -5,7 +5,9 @@ Comparison Operators:
 All Comparison Operators will return a boolean value (true/false)
 When comparing values of different types, javascript will convert the values
 to numbers.
--For boolean values, true == 1 and false == 0.
+- 0 is falsy.
+- Any string other than an empty string will return true.
+- For boolean values, true == 1 and false == 0.
 - Null is also converted to 0.
 - Undefined should not be compared to other values and does not get converted to 0.
 
@@ -46,10 +48,30 @@ return false.
 - ! represents not. Unary operator that is also referred to as "bang" operator
 It flips the boolean operand given to it, turning true to false and false to true.
 
--Ternary Operator: aka conditional operator, it is written with a question mark
+Ternary Operator: aka conditional operator, it is written with a question mark
 separating the first two operands and a colon separating the 2nd and 3rd operand.
 When the value on the left returns true, the ternary operator will return the middle
 value. When the value on the left returns false, it will return the value on the right.
+- Ternary Operators are often used for variable assignment, as it can easily
+replace an if else statement while being shorter to type and just as readable.
 */
 console.log(true ? "this will get logged" : "unchosen" );
 console.log(false ? "unchosen" : "this will get logged" ); 
+
+//misc example problems
+let message;
+// if (login == 'Employee') {
+// 	message = 'Hello';
+// } else if (login == 'Director') {
+// 	message = 'Greetings';
+// } else if (login == '') {
+// 	message = 'No Login';
+// } else {
+// 	message = '';
+// };
+
+//rewrite the if else block by using multiple ternary operators
+let message = (login == 'Employee') ? 'Hello' : 
+(login == 'Director') ? 'Greetings' :
+(login == '') ? 'No Login' :
+'';
